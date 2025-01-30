@@ -1,3 +1,47 @@
 *{
     background-color: black;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.clock{
+    position: absolute;
+    right: 64px;
+    top:  64px;
+    font-size: 18px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.bios{
+    position: absolute;
+    left: 64px;
+    top:  64px;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+    font-family: sans-serif;
+    width: 40%;
+    text-wrap: blance;
+}
+
+.year{
+    position: absolute;
+    right: 64px;
+    bottom: 64px;
+    font-size: 18px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.logo{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    user-select: none;
+}
