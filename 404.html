@@ -8,10 +8,6 @@
         <meta name="author" content="Hudle">
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <!-- HTML Meta Tags -->
-        <title>Hudle</title>
-        <meta name="description" content="A technology focused studio crafting new paradigms.">
 
         <!-- Facebook Meta Tags -->
         <meta property="og:url" content="https://letshudle.com">
@@ -46,6 +42,32 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-            
+        <div class="nav">
+            <h1 class="navTitle">Hudle is a design studio crafting <br> design and code into new paradigm</h1>
+            <a href="index.html" class="logoLink">
+                <img src="Hudle_ClearSet.png" draggable="false" alt="Hudle" class="navLogo">
+            </a>
+            <div class="links">
+                <a href="index.html" class="link">Work</a>
+                <a href="#" class="link">About</a>
+                <a href="#" class="link">Ideas</a>
+                <a href="#" class="link">Service</a>
+                <a href="#" class="link">Contact</a>
+            </div>
+        </div>
+        <section class="errorBody">
+            <div class="sadFace" id="gify"></div>
+            <h1 class="errorCopy">The page you were trying to find is not found. 
+                Please go back or retype the URL you were searching for. </h1>
+            </section>
      </body>
+     <script>
+        const gifs = [
+            "https://media1.giphy.com/media/Vp9rYcsH1cIVO/200w.gif?cid=6c09b952j4r3im79a8mhiwwh4hf1aw5ozclhq0le1s4zhhid&ep=v1_gifs_search&rid=200w.gif&ct=g",
+            "https://media.tenor.com/uxdPqDriK_wAAAAM/dog-fall.gif"
+        ];
+    
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+        document.getElementById("gify").innerHTML = `<img src="${randomGif}" alt="Sad GIF" class="sadFace">`;
+    </script>
 </html>

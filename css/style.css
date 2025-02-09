@@ -28,3 +28,71 @@
     user-select: none;
     width: 220px;
 }
+
+.navLogo{
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.errorCopy{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-wrap: balance;
+    padding-top: 64px;
+    font-size: 24px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.nav{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 22222;
+    padding: 32px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav a, .navTitle{
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.navTitle{
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.sadFace{  
+    width: 50vw;
+    height: auto;
+}
+
+.errorBody{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
