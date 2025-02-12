@@ -55,10 +55,13 @@ body{
 .errorCopy{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    text-wrap: balance;
-    padding-top: 64px;
-    font-size: 24px;
+    text-align: left;
+    font-size: 6vw;
+    line-height: 7vw;
+    padding: 32px;
+    padding-top: 164px;
+    position: absolute;
+    bottom: 32px;
 }
 
 .bold{
@@ -97,6 +100,10 @@ body{
     opacity: 1; /* Default state: visible */
 }
 
+.nav h1{
+    color: white;
+}
+
 .nav.fade-out {
     opacity: 0; /* Fade out when scrolling */
     pointer-events: none; /* Prevents interactions while faded out */
@@ -120,21 +127,12 @@ body{
     line-height: 16px;
 }
 
-.sadFace{  
-    width: 50vw;
-    height: auto;
-}
-
 .errorBody{
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 .eighty-grid{
