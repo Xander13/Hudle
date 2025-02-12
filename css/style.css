@@ -1,5 +1,20 @@
-*{
+:root{
+    --lg-margin: 332px;
+    --md-margin: 164px;
+    --sm-margin: 64px;
+    --xsm-margin: 24px;
+    --titleH1: 64px;
+    --titleH2: 24px;
+    --titleH3: 14px;
+}
+
+body{
     background-color: black;
+    font-family: sans-serif;
+}
+
+*{
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 ::-webkit-scrollbar {
@@ -30,12 +45,11 @@
 }
 
 .navLogo{
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
+    top: 32px;
+    left: 32px;
     position: fixed;
-    left: 0;
-    right: 0;
-    margin: auto;
 }
 
 .errorCopy{
@@ -51,17 +65,43 @@
     font-weight: bold;
 }
 
+.nav, .eighty-grid {
+    width: 80vw;
+}
+
+.articles{
+    position: relative;
+    top: calc(var(--lg-margin) / -2);
+}
+
+.copyBottom{
+    position: relative;
+    top: -332px;
+}
+
 .nav{
+    right: 0;
     display: flex;
     align-content: center;
     justify-content: space-between;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    position: relative;
     z-index: 22222;
     padding: 32px;
+    padding-top: 48px;
+    position: fixed;
+    background-color: black;
 }
+
+.nav {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1; /* Default state: visible */
+}
+
+.nav.fade-out {
+    opacity: 0; /* Fade out when scrolling */
+    pointer-events: none; /* Prevents interactions while faded out */
+}
+
 
 .links{
     display: flex;
@@ -95,4 +135,166 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.eighty-grid{
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 32px; /* Ensure padding is consistent if needed */
+}
+
+.flexBox{
+    display: flex;
+    gap: 32px;
+}
+
+.cols3{
+    flex: 1;
+    gap: 32px;
+    width: calc(100% / 3 - gap);
+}
+
+.cols2{
+    flex: 1;
+    width: calc(100% / 2);
+}
+
+.clipping{
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+}
+
+.clipping img{
+    width: 100%;
+    scale: 1.1;
+    transition: 0.2s ease;
+}
+
+.clipping:hover img{
+    scale: 1.2;
+    transition: 0.2s ease;
+}
+
+.tags .flexBox{
+    gap: 0;
+}
+
+.tag{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-radius: 100rem;
+    border: 1px solid white;
+    color: white;
+    font-family: sans-serif;
+    font-size: 12px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-transform: uppercase;
+}
+
+.titleH1{
+    font-size: var(--titleH1);
+    line-height: 1.2;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.lg-margin{
+    height: var(--lg-margin);
+}
+
+.md-margin{
+    height: var(--md-margin);
+}
+
+.sm-margin{
+    height: var(--sm-margin);
+}
+
+.xsm-margin{
+    height: var(--xsm-margin);
+}
+
+.articleTitle{
+    font-size: var(--titleH2);
+    line-height: 32px;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.articleCopy{
+    font-size: var(--titleH3);
+    line-height: calc(var(--titleH3)  * 2px);
+    font-family: sans-serif;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.t-cell .flexBox{
+        justify-content: space-between;
+        padding-top: 12px;
+        padding-bottom: 12px;
+}
+
+.t-cell .flexBox:hover{
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+.t-cell .flexBox:hover .t-name{
+    color: black;
+}
+
+.t-cell .t-topics{
+    color: gray;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.t-cell .t-topics:nth-child(1), .t-cell .t-name:nth-child(1){
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.t-cell .t-topics:nth-child(2), .t-cell .t-name:nth-child(2), .t-cell .t-topics:nth-child(3), .t-cell .t-name:nth-child(3), .t-cell .t-topics:nth-child(4), .t-cell .t-name:nth-child(4){
+    width: 100px;
+    box-sizing: border-box;
+}
+
+.t-cell .t-name{
+    color: white;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.key{
+    position: fixed;
+    left: 32px;
+    bottom: 32px;
+}
+
+.key h1 {
+    transition: color 0.3s, font-weight 0.3s;
+    color: #555; /* Default color */
+    line-height: 32px;
+    font-size: 16px;
+}
+
+.key h1.highlighted {
+    color: white; /* Highlighted color */
 }
