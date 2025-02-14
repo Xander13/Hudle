@@ -44,19 +44,18 @@
 </head>
 
 <body>
-    <a href="https://letshudle.com/">
-        <img src="Hudle_ClearSet.png" draggable="false" alt="Hudle Logo" class="navLogo">
-    </a>
-    <div class="nav">
-        <div class="links">
+    <nav>
+        <a href="https://letshudle.com/">
+            <img src="Hudle_ClearSet.png" draggable="false" alt="Hudle Logo" class="navLogo">
+        </a>
+        <div class="flexBox">
             <a href="https://letshudle.com" class="link">Work</a>
             <a href="#" class="link">About</a>
             <a href="ideas.html" class="link">Ideas</a>
             <a href="#" class="link">Service</a>
         </div>
-        <h1>It's <span id="detroitTime">00:00</span> in Detroit</h1>
-        <a href="contact.html" class="link">Contact</a>
-    </div>
+        <a href="contact.html" class="contact">Contact</a>
+    </nav>
     <div class="key">
         <h1 id="introduction">Intro</h1>
         <h1 id="collect">Data We Collect</h1>
@@ -186,15 +185,14 @@
             By using our Site, you agree to this Privacy Policy.
         </div>
     </div>
-    <footer>
+    <footer class="fixed">
         <div class="flexBox">
-            <a href="privacy-policy.html" class="link">Privacy Policy</a>
-            <h1>all rights reserved © 205 by Hudle Studio</h1>
-            <div class="flexBox">
+            <h1>It's <span id="detroitTime">00:00</span> in Detroit</h1>
+            <div class="flexBox" style="gap: 12px;">
                 <a href="https://www.instagram.com/letshudle/" class="social">Instagram</a>
                 <a href="https://www.linkedin.com/company/hudle/" class="social">LinkedIn</a>
-                <a href="https://twitter.com/letshudle" class="social">X ( Twitter )</a>
-        </div>
+                <a href="https://twitter.com/letshudle" class="social">X</a>
+            </div>
     </footer>
     <script>
         function updateTime() {
