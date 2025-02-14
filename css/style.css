@@ -9,6 +9,20 @@
     --bodyH1: 18px;
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav a:hover, a:hover{
+    color: rgb(196, 196, 196);
+}
+
+::selection {
+    background: rgb(255, 255, 255);
+    color: #000000;
+}
+
 body{
     background-color: black;
     font-family: sans-serif;
@@ -76,8 +90,57 @@ body{
 .privacy{
     max-width: 50vw;
     padding: 32px !important;
-    padding-top: 332px !important;
+    padding-top: 132px !important;
+    padding-bottom: 132px !important;
     margin: auto;
+}
+
+.contactbio{
+    width: 100%;
+    padding: 32px;
+    padding-top: 232px !important;
+    margin: auto;
+}
+
+label{
+    color: gray;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+input[type=text], textarea, select{
+    width: 100%;
+    padding: 16px;
+    padding-left: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type=submit]{
+    background-color: black;
+    color: white;
+    background-color: rgb(33, 33, 33);
+    padding: 10px;
+    border: none;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 100rem;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 .articles{
@@ -98,6 +161,7 @@ body{
     position: relative;
     z-index: 22222;
     padding: 32px;
+    padding-left: 0;
     padding-top: 48px;
     position: fixed;
     top: 0;
@@ -116,7 +180,6 @@ body{
     opacity: 0; /* Fade out when scrolling */
     pointer-events: none; /* Prevents interactions while faded out */
 }
-
 
 .links{
     display: flex;
@@ -217,6 +280,17 @@ body{
     margin-bottom: 32px;
 }
 
+.titleH2{
+    font-size: var(--titleH2);
+    line-height: 1.2;
+    font-family: sans-serif;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 32px;
+    margin-top: 64px;
+    font-weight: 200;
+}
+
 .bodyH1{
     font-size: var(--bodyH1);
     line-height: 32px;
@@ -298,10 +372,14 @@ body{
     font-size: 24px;
 }
 
-.key{
+.key {
     position: fixed;
     left: 32px;
-    bottom: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: fit-content;
+    height: fit-content;
+    z-index: 1000; /* Optional: to ensure it stays above other content */
 }
 
 .key h1 {
@@ -313,4 +391,33 @@ body{
 
 .key h1.highlighted {
     color: white; /* Highlighted color */
+}
+
+.imagewall{
+    background-color: gray;
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+footer{
+    padding: 32px;
+    padding-bottom: 32px;
+    color: gray;
+    width: 100%;
+    font-size: 14px;
+}
+
+footer .flexBox{
+    justify-content: space-between;
+}
+
+.fixed{
+    position: fixed;
+    bottom: 0;
 }
