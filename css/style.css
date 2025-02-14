@@ -59,13 +59,6 @@ body{
     width: 220px;
 }
 
-.navLogo{
-    width: 36px;
-    height: 36px;
-    top: 32px;
-    left: 32px;
-}
-
 .errorBody{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -174,9 +167,12 @@ nav{
     box-sizing: border-box;
 }
 
+.navlogo{
+    width: 48px;
+}
+
 nav .flexBox{
     align-content: center !important;
-    
 }
 
 nav {
@@ -188,7 +184,7 @@ nav h1{
     color: white;
 }
 
-.nav.fade-out {
+nav.fade-out {
     opacity: 0; /* Fade out when scrolling */
     pointer-events: none; /* Prevents interactions while faded out */
 }
