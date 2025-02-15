@@ -16,6 +16,36 @@ a{
     margin-block-start: 0 !important;
 }
 
+nav h1{
+    color: white !important;
+}
+
+#menuSpan{
+    position: fixed;
+    right: 32px;
+    top: 42px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#topMenu {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
 nav a:hover, a:hover{
     color: rgb(196, 196, 196);
 }
@@ -142,14 +172,11 @@ button:focus {
     outline: none;
 }
 
-.articles{
-    position: relative;
-    top: calc(var(--lg-margin) / -2);
-}
-
-.copyBottom{
-    position: relative;
-    top: -332px;
+.articles{  
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    right: 32px;
 }
 
 nav{
@@ -216,17 +243,6 @@ nav h1{
     bottom: 0;
     top: 0;
     z-index: -1;
-}
-
-.eighty-grid{
-    height: 100%;
-    width: 80%;
-    position: fixed;
-    overflow-y: auto;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding: 32px; /* Ensure padding is consistent if needed */
 }
 
 .flexBox{
@@ -432,7 +448,7 @@ nav h1{
 footer{
     padding: 32px;
     padding-bottom: 32px;
-    color: gray;
+    color: white;
     width: 100%;
     font-size: 14px;
     pointer-events: none;
@@ -440,6 +456,8 @@ footer{
 
 footer a{
     pointer-events: all;
+    text-decoration: underline;
+    text-underline-offset: 8px;
 }
 
 footer .flexBox{

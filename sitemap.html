@@ -48,13 +48,14 @@
         <a href="https://letshudle.com/">
             <img src="Hudle_ClearSet.png" draggable="false" alt="Hudle Logo" class="navLogo">
         </a>
-        <div class="flexBox">
+        <div class="flexBox" id="topMenu">
             <a href="https://letshudle.com" class="link">Work</a>
             <a href="#" class="link">About</a>
             <a href="ideas.html" class="link">Ideas</a>
             <a href="#" class="link">Service</a>
             <a href="contact.html">Contact</a>
         </div>
+        <h1 id="menuSpan">Menu +</h1>
     </nav>
     <div class="key">
         <h1 id="index">Index</h1>
@@ -111,92 +112,7 @@
                 <a href="https://twitter.com/letshudle" class="social">X</a>
             </div>
     </footer>
-    <script>
-        function updateTime() {
-            var date = new Date();
-            var hours = date.getHours();
-            var minutes = date.getMinutes();
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            var time = hours + ":" + minutes;
-            document.getElementById("detroitTime").innerHTML = time;
-        }
-        setInterval(updateTime, 1000);
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const keyItems = document.querySelectorAll(".key h1");
-    const sections = document.querySelectorAll("a[id$='_section']");
-    let lastHighlighted = null;
-
-    function highlightSection() {
-        let highlighted = null;
-        let minDistance = Infinity;
-        const triggerPoint = window.innerHeight * 0.5; // 80% of viewport height
-
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const sectionMid = rect.top + rect.height / 2; // Midpoint of section
-
-            if (sectionMid >= 0 && sectionMid <= window.innerHeight) {
-                const distanceFromTrigger = Math.abs(sectionMid - triggerPoint);
-
-                if (distanceFromTrigger < minDistance) {
-                    minDistance = distanceFromTrigger;
-                    highlighted = section.id.replace("_section", "");
-                }
-            }
-        });
-
-        // 🔹 Ensure "Intro" is highlighted by default if the page is at the top
-        if (window.scrollY === 0) {
-            highlighted = "introduction";
-        }
-
-        if (highlighted !== lastHighlighted) {
-            keyItems.forEach((item) => {
-                if (item.id === highlighted) {
-                    item.classList.add("highlighted");
-                } else {
-                    item.classList.remove("highlighted");
-                }
-            });
-            lastHighlighted = highlighted;
-        }
-    }
-
-    // ✅ Enable smooth scroll on key item click
-    keyItems.forEach((item) => {
-        item.style.cursor = "pointer"; // 🔹 Add pointer cursor
-
-        item.addEventListener("click", function (event) {
-            event.preventDefault();
-            const sectionId = item.id + "_section";
-            const section = document.getElementById(sectionId);
-
-            if (section) {
-                section.scrollIntoView({ behavior: "smooth", block: "center" });
-
-                // 🔹 Force highlight the clicked section immediately
-                setTimeout(() => {
-                    lastHighlighted = sectionId.replace("_section", "");
-                    keyItems.forEach((key) => {
-                        key.classList.toggle("highlighted", key.id === lastHighlighted);
-                    });
-                }, 300); // Small delay to ensure smooth highlight transition
-            }
-        });
-    });
-
-    // ✅ Run on page load
-    highlightSection();
-
-    // ✅ Run on scroll
-    window.addEventListener("scroll", highlightSection);
-});
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
