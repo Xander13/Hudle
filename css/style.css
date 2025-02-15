@@ -450,3 +450,23 @@ footer .flexBox{
     position: fixed;
     bottom: 0;
 }
+
+.siteMapBody{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: gray;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 200;
+    cursor: pointer;
+    text-wrap: no-wrap;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: fit-content;
+    text-decoration-thickness: 1px;
+}
+
+.light{
+    color: gray;
+}
