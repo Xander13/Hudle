@@ -462,7 +462,7 @@ footer{
     width: 100%;
     font-size: 14px;
     pointer-events: none;
-
+}
 
 footer a{
     pointer-events: all;
@@ -475,6 +475,8 @@ footer .flexBox{
 .fixed{
     position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .siteMapBody{
