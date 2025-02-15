@@ -20,16 +20,26 @@ nav h1{
     color: white !important;
 }
 
-#menuSpan{
+#menuSpan {
     position: fixed;
     right: 32px;
     top: 42px;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevent clicks when hidden */
+    z-index: 10;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 18px;
 }
 
 #topMenu {
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 9;
 }
 
 .fade-in {
@@ -46,8 +56,8 @@ nav h1{
 }
 
 
-nav a:hover, a:hover{
-    color: rgb(196, 196, 196);
+nav a:hover,  a:hover,  nav h1:hover{
+    color: rgb(196, 196, 196 )  !important;
 }
 
 ::selection {
@@ -452,12 +462,10 @@ footer{
     width: 100%;
     font-size: 14px;
     pointer-events: none;
-}
+
 
 footer a{
     pointer-events: all;
-    text-decoration: underline;
-    text-underline-offset: 8px;
 }
 
 footer .flexBox{

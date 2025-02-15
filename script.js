@@ -2,21 +2,37 @@
 document.addEventListener("DOMContentLoaded", function () {
     const topMenu = document.getElementById("topMenu");
     const menuSpan = document.getElementById("menuSpan");
-    let lastScrollY = window.scrollY;
 
-    window.addEventListener("scroll", function () {
+    function updateMenuVisibility() {
         if (window.scrollY > 50) {
+            // Hide topMenu and show menuSpan
             topMenu.style.opacity = "0";
-            topMenu.style.pointerEvents = "none";
+            topMenu.style.visibility = "hidden";
+            topMenu.style.pointerEvents = "none"; 
+
             menuSpan.style.opacity = "1";
+            menuSpan.style.visibility = "visible";
+            menuSpan.style.pointerEvents = "auto";
         } else {
+            // Show topMenu and hide menuSpan
             topMenu.style.opacity = "1";
+            topMenu.style.visibility = "visible";
             topMenu.style.pointerEvents = "auto";
-            topMenu.classList.add("fade-in");
+
             menuSpan.style.opacity = "0";
+            menuSpan.style.visibility = "hidden";
+            menuSpan.style.pointerEvents = "none";
         }
-    });
+    }
+
+    // Run once on page load
+    updateMenuVisibility();
+
+    // Listen for scroll events
+    window.addEventListener("scroll", updateMenuVisibility);
 });
+
+
 
 //key text highlighter when scroll items
 document.addEventListener("DOMContentLoaded", function () {
