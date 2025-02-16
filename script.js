@@ -130,3 +130,42 @@ function updateTime() {
     document.getElementById("detroitTime").innerHTML = time;
 }
 setInterval(updateTime, 1000);
+
+//hide keys when footer appear
+document.addEventListener("DOMContentLoaded", function () {
+    const key = document.querySelector(".key");
+    const footer = document.querySelector("footer"); // Ensure your footer has a <footer> tag
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting) {
+                key.classList.add("hidden"); // Fade out when footer is visible
+            } else {
+                key.classList.remove("hidden"); // Fade back in when footer is not visible
+            }
+        },
+        { threshold: 0.01 } // Triggers when 1% of the footer is in view
+    );
+
+    observer.observe(footer);
+});
+
+
+//full menu toggle 
+document.addEventListener("DOMContentLoaded", function () {
+    const menuSpan = document.querySelector("#menuSpan"); // Select by ID
+    const fullMenuView = document.querySelector(".fullMenuView");
+    const body = document.body; // Select body
+
+    menuSpan.addEventListener("click", function () {
+        fullMenuView.classList.toggle("active"); // Toggle menu height
+        body.classList.toggle("no-scroll"); // Prevent or allow scrolling
+
+        // Change text inside menuSpan from "Menu" to "Close"
+        if (fullMenuView.classList.contains("active")) {
+            menuSpan.innerHTML = 'Close'; // Change text to "Close"
+        } else {
+            menuSpan.innerHTML = 'Menu'; // Change text back to "Menu"
+        }
+    });
+});
