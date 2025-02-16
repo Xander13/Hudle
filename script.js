@@ -155,17 +155,54 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const menuSpan = document.querySelector("#menuSpan"); // Select by ID
     const fullMenuView = document.querySelector(".fullMenuView");
+    const fullMenuContent = document.querySelector(".fullMenuContent");
     const body = document.body; // Select body
 
     menuSpan.addEventListener("click", function () {
-        fullMenuView.classList.toggle("active"); // Toggle menu height
-        body.classList.toggle("no-scroll"); // Prevent or allow scrolling
-
-        // Change text inside menuSpan from "Menu" to "Close"
+        // Check if the menu is active
         if (fullMenuView.classList.contains("active")) {
-            menuSpan.innerHTML = 'Close'; // Change text to "Close"
+            // Menu is closing, so first fade out content
+            fullMenuContent.style.opacity = '0'; // Fade out the content
+            fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-out transition
+            
+            // After the fade-out completes, collapse the menu
+            setTimeout(() => {
+                fullMenuView.style.height = '0'; // Collapse the menu to 0 height
+                body.classList.remove("no-scroll"); // Allow scrolling again
+            }, 500); // Wait for opacity transition (500ms)
+            
+            // Change menu text back to 'Menu'
+            menuSpan.innerHTML = 'Menu'; 
         } else {
-            menuSpan.innerHTML = 'Menu'; // Change text back to "Menu"
+            // Menu is opening, so set height to 100% first
+            fullMenuView.style.height = '100%'; // Expand the menu to full height
+            body.classList.add("no-scroll"); // Prevent scrolling
+
+            // After the height transition completes, fade in the content
+            setTimeout(() => {
+                fullMenuContent.style.opacity = '1'; // Fade in the content
+                fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-in transition
+            }, 500); // Wait for height transition (500ms)
+            
+            // Change menu text to 'Close'
+            menuSpan.innerHTML = 'Close'; 
         }
+        
+        // Toggle the active class for the menu
+        fullMenuView.classList.toggle("active");
     });
 });
+
+
+
+//Scroll back to top of site
+const backToTopButton = document.getElementById('backtotop');
+
+// When the user clicks on the button, scroll to the top of the document
+backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+

@@ -14,6 +14,12 @@ body{
     overscroll-behavior: none;
 }
 
+.clickable{
+    pointer-events: all;
+    z-index: 100;
+    cursor: pointer;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -23,7 +29,6 @@ a {
 
 body.no-scroll {
     overflow: hidden;
-    /* Prevents scrolling */
 }
 
 .fullMenuView {
@@ -52,6 +57,30 @@ body.no-scroll {
     right: 0;
     bottom: 0;
     z-index: 2222;
+}
+
+.fullMenuContent{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.fullMenuContent a{
+    font-size: 4vw;
+    font-weight: 100;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.fullMenuContent .flexBox{
+    justify-content: space-between;
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
 }
 
 nav h1 {
@@ -99,8 +128,17 @@ nav h1 {
 
 nav a:hover,
 a:hover,
-nav h1:hover {
+nav h1:hover,
+.clickable:hover {
     color: rgb(196, 196, 196) !important;
+}
+
+.circle{
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 100rem;
+    position: relative;
 }
 
 ::selection {
@@ -168,6 +206,10 @@ body {
 
 .bold {
     font-weight: bold;
+}
+
+.short{
+    width: 63%;
 }
 
 .privacy {
@@ -543,6 +585,11 @@ footer .flexBox .stack {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.stack{
+    display: flex;
+    flex-direction: column;
 }
 
 footer a {
