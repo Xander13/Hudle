@@ -213,7 +213,7 @@ body {
 }
 
 .privacy {
-    max-width: 45vw;
+    max-width: 40vw;
     padding: 32px !important;
     padding-top: 264px !important;
     padding-bottom: 132px !important;
@@ -528,8 +528,9 @@ nav h1 {
 .key {
     position: fixed;
     left: 32px;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    bottom: 32px;
+    /* transform: translateY(-50%); */
     width: fit-content;
     height: fit-content;
     z-index: 1000;
