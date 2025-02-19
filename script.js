@@ -238,7 +238,7 @@ backToTopButton.addEventListener('click', function () {
 const button = document.getElementById("changeColor");
 const body = document.body;
 
-const themes = ["light-mode", "dark-mode", "gray-mode"];
+const themes = ["dark-mode", "gray-mode"];
 let currentThemeIndex = 0;
 
 button.addEventListener("click", () => {

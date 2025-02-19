@@ -3,6 +3,7 @@
     --light: #ffffff;
     --midGrayDark: #fff;
     --midGrayLight: #121212;
+    --hightlightGray: gray;
     --lg-margin: 332px;
     --md-margin: 164px;
     --sm-margin: 64px;
@@ -123,6 +124,7 @@ body.no-scroll {
     scale: 1;
     z-index: 222;
     background-color: var(--light);
+    mix-blend-mode: difference;
 }
 
 .colorDot:hover {
@@ -643,8 +645,16 @@ nav h1 {
 .t-cell .t-name:nth-child(3),
 .t-cell .t-topics:nth-child(4),
 .t-cell .t-name:nth-child(4) {
-    width: 100px;
+    width: 240px;
     box-sizing: border-box;
+}
+
+.t-cell .t-topics:nth-child(3), .t-cell .t-name:nth-child(3){
+    text-align: center;
+}
+
+.t-cell .t-topics:nth-child(4), .t-cell .t-name:nth-child(4) {
+    text-align: end;
 }
 
 .t-cell .t-name {
@@ -669,12 +679,11 @@ nav h1 {
 .hidden {
     opacity: 0;
     pointer-events: none;
-    /* Prevent interactions when hidden */
 }
 
 .key h1 {
     transition: color 0.3s, font-weight 0.3s;
-    color: var(--midGrayDark);
+    color: var(--hightlightGray);
     /* Default color */
     line-height: 32px;
     font-size: 16px;
