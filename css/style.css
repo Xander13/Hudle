@@ -1,8 +1,8 @@
 :root {
     --dark: #000000;
     --light: #ffffff;
-    --midGrayDark: #616161;
-    --midGrayLight: #f2f2f2;
+    --midGrayDark: #fff;
+    --midGrayLight: #121212;
     --lg-margin: 332px;
     --md-margin: 164px;
     --sm-margin: 64px;
