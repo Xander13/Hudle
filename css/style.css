@@ -402,9 +402,9 @@ nav {
     /* Space between items */
     position: fixed;
     z-index: 22222;
-    top: 32px;
-    left: 64px;
-    right: 64px;
+    top: 48px;
+    left: 48px;
+    right: 48px;
     box-sizing: border-box;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
@@ -668,7 +668,7 @@ nav h1 {
     position: fixed;
     left: 48px;
     /* top: 50%; */
-    bottom: 32px;
+    bottom: 48px;
     /* transform: translateY(-50%); */
     width: fit-content;
     height: fit-content;
