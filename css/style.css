@@ -116,6 +116,7 @@ body.no-scroll {
     transition: scale 0.3s ease;
     scale: 1;
     z-index: 222;
+    background-color: var(--light);
 }
 
 .colorDot:hover {
