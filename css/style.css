@@ -635,7 +635,7 @@ nav h1 {
 
 .t-cell .t-topics:nth-child(1),
 .t-cell .t-name:nth-child(1) {
-    width: 50%;
+    width: 40%;
     box-sizing: border-box;
 }
 
@@ -645,7 +645,7 @@ nav h1 {
 .t-cell .t-name:nth-child(3),
 .t-cell .t-topics:nth-child(4),
 .t-cell .t-name:nth-child(4) {
-    width: 240px;
+    width: 320px;
     box-sizing: border-box;
 }
 
