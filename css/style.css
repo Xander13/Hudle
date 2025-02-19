@@ -22,8 +22,10 @@
     background-color: var(--light);
     color: var(--dark);
     --svg-color: var(--dark);
-    --inverse-bg: var(--dark);  /* Updated */
-    --inverse-text: var(--light); /* Updated */
+    --inverse-bg: var(--dark);
+    /* Updated */
+    --inverse-text: var(--light);
+    /* Updated */
 }
 
 /* Dark Mode */
@@ -31,8 +33,10 @@
     background-color: var(--dark);
     color: var(--light);
     --svg-color: var(--light);
-    --inverse-bg: var(--light); /* Updated */
-    --inverse-text: var(--dark); /* Updated */
+    --inverse-bg: var(--light);
+    /* Updated */
+    --inverse-text: var(--dark);
+    /* Updated */
 }
 
 /* Gray Mode */
@@ -40,8 +44,10 @@
     background-color: var(--midGrayLight);
     color: var(--midGrayDark);
     --svg-color: var(--midGrayDark);
-    --inverse-bg: var(--midGrayDark); /* Updated */
-    --inverse-text: var(--midGrayLight); /* Updated */
+    --inverse-bg: var(--midGrayDark);
+    /* Updated */
+    --inverse-text: var(--midGrayLight);
+    /* Updated */
 }
 
 /* Elements that should always have inverse colors */
@@ -275,10 +281,10 @@ body {
     height: 100%;
 }
 
-.errorBody h1{
+.errorBody h1 {
     width: 100%;
     max-width: 85%;
-    text-align: left; 
+    text-align: left;
     position: fixed;
     left: 64px;
     bottom: 48px;
@@ -302,28 +308,28 @@ body {
     margin: auto;
 }
 
-.siteMap{
+.siteMap {
     max-width: 60vw;
     padding-top: 264px;
     padding-bottom: 132px;
     margin: auto;
 }
 
-.siteMap .flexBox{
+.siteMap .flexBox {
     justify-content: space-between;
     gap: 0;
     border-bottom: 1px solid white;
 }
 
-.siteMap .flexBox:not(:first-child){
+.siteMap .flexBox:not(:first-child) {
     padding-top: 16px;
 }
 
-.siteMap .flexBox{
+.siteMap .flexBox {
     padding-bottom: 1px solid var(--light);
 }
 
-.siteMap .t-name:last-child{
+.siteMap .t-name:last-child {
     text-align: end;
 }
 
@@ -382,7 +388,7 @@ button:focus {
     padding-right: 48px;
 }
 
-.articles .flexBox{
+.articles .flexBox {
     gap: 12px;
 }
 
@@ -591,7 +597,7 @@ nav h1 {
     border-bottom: 1px solid white;
 }
 
-.t-cell .flexBox:not(:first-child){
+.t-cell .flexBox:not(:first-child) {
     padding-top: 16px;
 }
 
@@ -674,7 +680,7 @@ nav h1 {
     font-size: 16px;
 }
 
-.highlighted{
+.highlighted {
     color: var(--light) !important;
 }
 
@@ -728,4 +734,44 @@ footer .flexBox {
 
 .light {
     color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+    #topMenu {
+        display: none;
+    }
+
+    #menuSpan {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+        right: 16px;
+        top: 24px;
+    }
+
+    nav{
+        left: 16px;
+        right: 16px;
+        top: 24px;
+    }
+
+    .fullMenuContent .flexBox{
+        flex-direction: column;
+    }
+
+    .fullMenuContent a{
+        font-size: 12vw;
+        line-height: 10vw;
+        text-align: left;
+    }
+
+    .errorBody h1{
+        left: 16px;
+        bottom: 16px;
+    }
+
+    .colorDot{
+        right: 32px;
+        bottom: 32px;
+    }
 }

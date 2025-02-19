@@ -103,6 +103,48 @@
         void button.offsetHeight;  // Trigger reflow
         button.style.display = "block";
     });
+
+    //full menu toggle 
+document.addEventListener("DOMContentLoaded", function () {
+    const menuSpan = document.querySelector("#menuSpan"); // Select by ID
+    const fullMenuView = document.querySelector(".fullMenuView");
+    const fullMenuContent = document.querySelector(".fullMenuContent");
+    const body = document.body; // Select body
+
+    menuSpan.addEventListener("click", function () {
+        // Check if the menu is active
+        if (fullMenuView.classList.contains("active")) {
+            // Menu is closing, so first fade out content
+            fullMenuContent.style.opacity = '0'; // Fade out the content
+            fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-out transition
+
+            // After the fade-out completes, collapse the menu
+            setTimeout(() => {
+                fullMenuView.style.height = '0'; // Collapse the menu to 0 height
+                body.classList.remove("no-scroll"); // Allow scrolling again
+            }, 500); // Wait for opacity transition (500ms)
+
+            // Change menu text back to 'Menu'
+            menuSpan.innerHTML = 'Menu';
+        } else {
+            // Menu is opening, so set height to 100% first
+            fullMenuView.style.height = '100%'; // Expand the menu to full height
+            body.classList.add("no-scroll"); // Prevent scrolling
+
+            // After the height transition completes, fade in the content
+            setTimeout(() => {
+                fullMenuContent.style.opacity = '1'; // Fade in the content
+                fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-in transition
+            }, 500); // Wait for height transition (500ms)
+
+            // Change menu text to 'Close'
+            menuSpan.innerHTML = 'Close';
+        }
+
+        // Toggle the active class for the menu
+        fullMenuView.classList.toggle("active");
+    });
+});
 </script>
 
 </html>

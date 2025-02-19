@@ -4,8 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuSpan = document.getElementById("menuSpan");
 
     function updateMenuVisibility() {
+        if (window.innerWidth <= 601) {
+            // Reset styles for small screens
+            topMenu.style.opacity = "";
+            topMenu.style.visibility = "";
+            topMenu.style.pointerEvents = "";
+
+            menuSpan.style.opacity = "";
+            menuSpan.style.visibility = "";
+            menuSpan.style.pointerEvents = "";
+
+            window.removeEventListener("scroll", updateMenuVisibility);
+            return;
+        }
+
         if (window.scrollY > 50) {
-            // Hide topMenu and show menuSpan
             topMenu.style.opacity = "0";
             topMenu.style.visibility = "hidden";
             topMenu.style.pointerEvents = "none";
@@ -14,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
             menuSpan.style.visibility = "visible";
             menuSpan.style.pointerEvents = "auto";
         } else {
-            // Show topMenu and hide menuSpan
             topMenu.style.opacity = "1";
             topMenu.style.visibility = "visible";
             topMenu.style.pointerEvents = "auto";
@@ -25,12 +37,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Run once on page load
-    updateMenuVisibility();
+    function checkWindowSize() {
+        if (window.innerWidth > 601) {
+            updateMenuVisibility();
+            window.addEventListener("scroll", updateMenuVisibility);
+        } else {
+            // Ensure script doesn't run on small screens
+            topMenu.style.opacity = "";
+            topMenu.style.visibility = "";
+            topMenu.style.pointerEvents = "";
 
-    // Listen for scroll events
-    window.addEventListener("scroll", updateMenuVisibility);
+            menuSpan.style.opacity = "";
+            menuSpan.style.visibility = "";
+            menuSpan.style.pointerEvents = "";
+
+            window.removeEventListener("scroll", updateMenuVisibility);
+        }
+    }
+
+    checkWindowSize();
+    window.addEventListener("resize", checkWindowSize);
 });
+
 
 
 
