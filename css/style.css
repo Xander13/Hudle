@@ -1,27 +1,90 @@
 :root {
+    --dark: #000000;
+    --light: #ffffff;
+    --midGrayDark: #616161;
+    --midGrayLight: #f2f2f2;
     --lg-margin: 332px;
     --md-margin: 164px;
     --sm-margin: 64px;
     --xsm-margin: 24px;
-    --titleH1: 64px;
+    --titleH1: 56px;
     --titleH2: 32px;
     --titleH3: 14px;
     --bodyH1: 18px;
+    --svg-color: var(--dark);
+    --inverse-bg: var(--light);
+    --inverse-text: var(--dark);
     overscroll-behavior: none;
 }
 
-body{
-    overscroll-behavior: none;
+/* Dark Mode */
+.light-mode {
+    background-color: var(--light);
+    color: var(--dark);
+    --svg-color: var(--dark);
+    --inverse-bg: var(--dark);
+    --inverse-text: var(--light);
 }
 
-.clickable{
+/* Dark Mode */
+.dark-mode {
+    background-color: var(--dark);
+    color: var(--light);
+    --svg-color: var(--light);
+    --inverse-bg: var(--light);
+    --inverse-text: var(--dark);
+}
+
+/* Gray Mode */
+.gray-mode {
+    background-color: var(--midGrayLight);
+    color: var(--midGrayDark);
+    --svg-color: var(--midGrayDark);
+    --inverse-bg: var(--midGrayDark);
+    --inverse-text: var(--midGrayLight);
+}
+
+/* Elements that should always have inverse colors */
+#changeColor,
+#menuSpan {
+    background-color: var(--inverse-bg);
+    color: var(--inverse-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Apply Colors */
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    color: var(--text);
+}
+
+/* SVG Styling */
+.navLogo {
+    fill: var(--svg-color);
+    transition: fill 0.3s;
+}
+
+
+body {
+    overscroll-behavior: none;
+    background-color: var(--dark);
+    color: var(--light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.clickable {
     pointer-events: all;
     z-index: 100;
     cursor: pointer;
 }
 
 a {
-    color: white;
     text-decoration: none;
     margin-block-end: 0 !important;
     margin-block-start: 0 !important;
@@ -29,6 +92,26 @@ a {
 
 body.no-scroll {
     overflow: hidden;
+}
+
+.colorDot {
+    width: 18px;
+    height: 18px;
+    border-radius: 100rem;
+    position: fixed;
+    right: 48px;
+    bottom: 32px;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+    scale: 1;
+    mix-blend-mode: difference;
+    z-index: 222;
+    
+}
+
+.colorDot:hover {
+    transition: scale 0.3s ease;
+    scale: 1.1;
 }
 
 .fullMenuView {
@@ -40,7 +123,7 @@ body.no-scroll {
     width: 100%;
     height: 0%;
     /* Default hidden */
-    background: rgb(0, 0, 0);
+    background: var(--dark);
     /* Example dark overlay */
     overflow: hidden;
     /* Prevents content from being visible when height is 0 */
@@ -59,7 +142,7 @@ body.no-scroll {
     z-index: 2222;
 }
 
-.fullMenuContent{
+.fullMenuContent {
     position: relative;
     width: 100%;
     height: 100%;
@@ -68,14 +151,14 @@ body.no-scroll {
     opacity: 0;
 }
 
-.fullMenuContent a{
+.fullMenuContent a {
     font-size: 4vw;
     font-weight: 100;
     text-align: left;
     text-transform: uppercase;
 }
 
-.fullMenuContent .flexBox{
+.fullMenuContent .flexBox {
     justify-content: space-between;
     position: absolute;
     bottom: 32px;
@@ -83,24 +166,26 @@ body.no-scroll {
     right: 32px;
 }
 
-nav h1 {
-    color: white !important;
-}
-
 #menuSpan {
     position: fixed;
-    right: 32px;
-    top: 42px;
+    right: 48px;
+    top: 32px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    /* Prevent clicks when hidden */
     z-index: 10;
     cursor: pointer;
-    font-size: 16px;
     line-height: 18px;
     user-select: none;
+    border-radius: 100rem;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: auto;
+    height: auto;
+    font-size: 16px !important;
+    font-weight: 400 !important;
 }
 
 #topMenu {
@@ -133,21 +218,12 @@ nav h1:hover,
     color: rgb(196, 196, 196) !important;
 }
 
-.circle{
-    width: 12px;
-    height: 12px;
-    background-color: black;
-    border-radius: 100rem;
-    position: relative;
-}
-
 ::selection {
-    background: rgb(255, 255, 255);
-    color: #000000;
+    background: var(--light);
+    color: var(--dark);
 }
 
 body {
-    background-color: black;
     font-family: sans-serif;
 }
 
@@ -166,7 +242,6 @@ body {
     bottom: 64px;
     font-size: 18px;
     line-height: 28px;
-    color: white;
     font-family: sans-serif;
     width: 390px;
     text-wrap: blance;
@@ -184,7 +259,6 @@ body {
 }
 
 .errorBody {
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     font-size: 3vw;
@@ -208,7 +282,7 @@ body {
     font-weight: bold;
 }
 
-.short{
+.short {
     width: 63%;
 }
 
@@ -218,6 +292,31 @@ body {
     padding-top: 264px !important;
     padding-bottom: 132px !important;
     margin: auto;
+}
+
+.siteMap{
+    max-width: 60vw;
+    padding-top: 264px;
+    padding-bottom: 132px;
+    margin: auto;
+}
+
+.siteMap .flexBox{
+    justify-content: space-between;
+    gap: 0;
+    border-bottom: 1px solid white;
+}
+
+.siteMap .flexBox:not(:first-child){
+    padding-top: 16px;
+}
+
+.siteMap .flexBox{
+    padding-bottom: 1px solid var(--light);
+}
+
+.siteMap .t-name:last-child{
+    text-align: end;
 }
 
 .contactbio {
@@ -243,17 +342,15 @@ select {
     margin-bottom: 16px;
     border: none;
     border-bottom: 1px solid gray;
-    background-color: black;
-    color: white;
     font-family: sans-serif;
     outline: none;
     font-size: 16px;
 }
 
 input[type=submit] {
-    background-color: black;
-    color: white;
-    background-color: rgb(33, 33, 33);
+    background-color: var(--dark);
+    color: var(--light);
+    background-color: (33, 33, 33);
     padding: 10px;
     border: none;
     padding-left: 24px;
@@ -274,7 +371,11 @@ button:focus {
     height: 100%;
     width: 100%;
     padding-left: 16%;
-    padding-right: 32px;
+    padding-right: 48px;
+}
+
+.articles .flexBox{
+    gap: 12px;
 }
 
 nav {
@@ -286,8 +387,8 @@ nav {
     position: fixed;
     z-index: 22222;
     top: 32px;
-    left: 32px;
-    right: 32px;
+    left: 64px;
+    right: 64px;
     box-sizing: border-box;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
@@ -378,18 +479,17 @@ nav h1 {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-radius: 6px;
 }
 
 .clipping img {
     width: 100%;
     scale: 1.1;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
 }
 
 .clipping:hover img {
-    scale: 1.2;
-    transition: 0.2s ease;
+    scale: 1.15;
+    transition: 0.3s ease;
 }
 
 .tags .flexBox {
@@ -407,8 +507,7 @@ nav h1 {
 
 .contact {
     border-radius: 100rem;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--light);
     font-family: sans-serif;
     font-size: 12px;
     padding: 8px;
@@ -424,16 +523,15 @@ nav h1 {
     font-size: var(--titleH1);
     line-height: 1.2;
     font-family: sans-serif;
-    color: white;
     margin-top: 0;
     margin-bottom: 32px;
+    font-weight: 300 !important;
 }
 
 .titleH2 {
     font-size: var(--titleH2);
     line-height: 1.2;
     font-family: sans-serif;
-    color: white;
     margin-top: 0;
     margin-bottom: 32px;
     margin-top: 64px;
@@ -443,8 +541,6 @@ nav h1 {
 .bodyH1 {
     font-size: var(--bodyH1);
     line-height: 32px;
-    font-family: sans-serif;
-    color: white;
     margin-top: 0;
     font-weight: 200 !important;
 }
@@ -466,12 +562,13 @@ nav h1 {
 }
 
 .articleTitle {
-    font-size: var(--titleH2);
-    line-height: 48px;
+    font-size: 20px;
+    line-height: 32px;
     font-family: sans-serif;
-    color: white;
     margin-top: 0;
     margin-bottom: 4px;
+    text-wrap: balance;
+    max-width: 90%;
 }
 
 .small {
@@ -481,19 +578,38 @@ nav h1 {
 
 .t-cell .flexBox {
     justify-content: space-between;
-    padding-top: 12px;
+    padding-top: 4px;
     padding-bottom: 12px;
+    border-bottom: 1px solid white;
+}
+
+.t-cell .flexBox:not(:first-child){
+    padding-top: 16px;
+}
+
+.t-cell:hover .flexBox {
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
 }
 
 .t-cell .flexBox:hover {
-    background-color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease;
     cursor: pointer;
-    color: black;
 }
 
-.t-cell .flexBox:hover .t-name {
-    color: black;
+.t-cell .flexBox {
+    transition: opacity 0.5s ease;
+    cursor: pointer;
 }
+
+.t-cell .flexBox {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
 
 .t-cell .t-topics {
     color: gray;
@@ -518,16 +634,15 @@ nav h1 {
 }
 
 .t-cell .t-name {
-    color: white;
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight: 100;
 }
 
 .key {
     position: fixed;
-    left: 32px;
+    left: 48px;
     /* top: 50%; */
     bottom: 32px;
     /* transform: translateY(-50%); */
@@ -545,19 +660,14 @@ nav h1 {
 
 .key h1 {
     transition: color 0.3s, font-weight 0.3s;
-    color: #555;
+    color: var(--midGrayDark);
     /* Default color */
     line-height: 32px;
     font-size: 16px;
 }
 
-.key h1:hover {
-    color: white;
-}
-
-.key h1.highlighted {
-    color: white;
-    /* Highlighted color */
+.highlighted{
+    color: var(--light) !important;
 }
 
 .imagewall {
@@ -575,11 +685,11 @@ nav h1 {
 footer {
     padding: 32px;
     padding-bottom: 32px;
-    color: black;
-    background-color: white;
     width: 100%;
     font-size: 14px;
     pointer-events: none;
+    background-color: white;
+    color: black;
 }
 
 footer .flexBox .stack {
@@ -588,22 +698,13 @@ footer .flexBox .stack {
     gap: 12px;
 }
 
-.stack{
+.stack {
     display: flex;
     flex-direction: column;
 }
 
 footer a {
     pointer-events: all;
-    color: black;
-}
-
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer a {
-    color: black !important;
 }
 
 footer .flexBox {
@@ -615,22 +716,6 @@ footer .flexBox {
     bottom: 0;
     left: 0;
     right: 0;
-}
-
-.siteMapBody {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    color: gray;
-    font-size: 32px;
-    line-height: 38px;
-    font-weight: 200;
-    cursor: pointer;
-    text-wrap: no-wrap;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: fit-content;
-    text-decoration-thickness: 1px;
 }
 
 .light {

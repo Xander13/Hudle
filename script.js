@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Hide topMenu and show menuSpan
             topMenu.style.opacity = "0";
             topMenu.style.visibility = "hidden";
-            topMenu.style.pointerEvents = "none"; 
+            topMenu.style.pointerEvents = "none";
 
             menuSpan.style.opacity = "1";
             menuSpan.style.visibility = "visible";
@@ -164,15 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
             // Menu is closing, so first fade out content
             fullMenuContent.style.opacity = '0'; // Fade out the content
             fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-out transition
-            
+
             // After the fade-out completes, collapse the menu
             setTimeout(() => {
                 fullMenuView.style.height = '0'; // Collapse the menu to 0 height
                 body.classList.remove("no-scroll"); // Allow scrolling again
             }, 500); // Wait for opacity transition (500ms)
-            
+
             // Change menu text back to 'Menu'
-            menuSpan.innerHTML = 'Menu'; 
+            menuSpan.innerHTML = 'Menu';
         } else {
             // Menu is opening, so set height to 100% first
             fullMenuView.style.height = '100%'; // Expand the menu to full height
@@ -183,11 +183,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 fullMenuContent.style.opacity = '1'; // Fade in the content
                 fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-in transition
             }, 500); // Wait for height transition (500ms)
-            
+
             // Change menu text to 'Close'
-            menuSpan.innerHTML = 'Close'; 
+            menuSpan.innerHTML = 'Close';
         }
-        
+
         // Toggle the active class for the menu
         fullMenuView.classList.toggle("active");
     });
@@ -199,10 +199,27 @@ document.addEventListener("DOMContentLoaded", function () {
 const backToTopButton = document.getElementById('backtotop');
 
 // When the user clicks on the button, scroll to the top of the document
-backToTopButton.addEventListener('click', function() {
+backToTopButton.addEventListener('click', function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 });
 
+//change color of page:
+const button = document.getElementById("changeColor");
+const body = document.body;
+
+const themes = ["light-mode", "dark-mode", "gray-mode"];
+let currentThemeIndex = 0;
+
+button.addEventListener("click", () => {
+    // Remove the previous theme
+    body.classList.remove(themes[currentThemeIndex]);
+
+    // Move to the next theme
+    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+
+    // Add the new theme
+    body.classList.add(themes[currentThemeIndex]);
+});
