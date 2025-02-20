@@ -29,6 +29,26 @@
     /* Updated */
 }
 
+.ImgTurn {
+    max-width: 100%; /* Ensures it fits within the viewport */
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    position: absolute; /* Allows transform centering */
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.5s ease, transform 0.2s ease;
+}
+
+.casestudy{
+    width: 100%;
+    background-color: black;
+    padding: 48px;
+    display: none;
+}
+
 /* Dark Mode */
 .dark-mode {
     background-color: var(--dark);
@@ -125,6 +145,19 @@ body.no-scroll {
     z-index: 222;
     background-color: var(--light);
     mix-blend-mode: difference;
+}
+
+.projects{
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.projects .flexBox{
+    gap: 8px;
+}
+
+.projects img{
+    padding-bottom: 6px;
 }
 
 .colorDot:hover {
@@ -706,7 +739,7 @@ nav h1 {
 }
 
 footer {
-    padding: 32px;
+    padding: 48px;
     padding-bottom: 32px;
     width: 100%;
     font-size: 14px;

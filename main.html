@@ -1,0 +1,162 @@
+<!--Hi, nice meeting you. Stay tune for more!-->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>Hudle → A technology focused studio crafting new paradigms.</title>
+    <meta name="description" content="A technology focused studio crafting new paradigms.">
+    <meta name="keywords" content="Hudle, technology, design, enigneering, studio">
+    <meta name="author" content="Hudle">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://letshudle.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hudle">
+    <meta property="og:description" content="A technology focused studio crafting new paradigms.">
+    <meta property="og:image" content="HudleOG.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="letshudle.com">
+    <meta property="twitter:url" content="https://letshudle.com">
+    <meta name="twitter:title" content="Hudle">
+    <meta name="twitter:description" content="A technology focused studio crafting new paradigms.">
+    <meta name="twitter:image" content="HudleOG.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Hudle_Apple.png">
+
+    <!-- Safari Theme Color (Black) -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="http://letshudle.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="Hudle.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/cssreset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="https://letshudle.com/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" class="navLogo">
+                <circle cx="24.0228" cy="5.0453" r="3.808" fill="currentColor"/>
+                <circle cx="24.0228" cy="43.1254" r="3.808" fill="currentColor"/>
+                <circle cx="43.0631" cy="24.0853" r="3.808" transform="rotate(90 43.0631 24.0853)" fill="currentColor"/>
+                <circle cx="4.98302" cy="24.0853" r="3.808" transform="rotate(90 4.98302 24.0853)" fill="currentColor"/>
+                <rect x="33.5039" y="5.05566" width="13.44" height="13.44" rx="5.824" transform="rotate(45 33.5039 5.05566)" fill="currentColor"/>
+                <rect x="43.0068" y="33.5664" width="13.44" height="13.44" rx="5.824" transform="rotate(135 43.0068 33.5664)" fill="currentColor"/>
+                <rect x="14.4961" y="24.0625" width="13.44" height="13.44" rx="5.824" transform="rotate(45 14.4961 24.0625)" fill="currentColor"/>
+                <rect x="24" y="14.5586" width="13.44" height="13.44" rx="5.824" transform="rotate(135 24 14.5586)" fill="currentColor"/>
+              </svg>
+        </a>
+        <div class="flexBox" id="topMenu">
+            <a href="https://letshudle.com" class="link">Work</a>
+            <a href="#" class="link">About</a>
+            <a href="ideas.html" class="link">Ideas</a>
+            <a href="#" class="link">Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <h1 id="menuSpan">Menu</h1>
+    </nav>
+    <div class="fullMenuView">
+        <div class="fullMenuContent">
+            <div class="flexBox">
+                <a href="https://letshudle.com" class="link">Work</a>
+                <a href="#" class="link">About</a>
+                <a href="ideas.html" class="link">Ideas</a>
+                <a href="#" class="link">Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </div>
+    <div class="colorDot" id="changeColor"></div>
+    <img draggable="false" class="ImgTurn" src="HudleIMG_Tester.png" width="100%" alt="Hudle Team Looking Down to Carmera" id="turnZoom">
+    <div class="casestudy">
+        <h1>Select Works</h1>
+        <img src="SQ_team.png">
+        <div class="flexBox">
+            <div class="cols2">
+                <img src="SQ_team.png">
+            </div>
+            <div class="cols2">
+                <img src="SQ_team.png">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const img = document.getElementById("turnZoom");
+    let scale = 1;
+    let opacity = 1;
+    
+    function fitToScreen() {
+        const scaleX = window.innerWidth / img.naturalWidth;
+        const scaleY = window.innerHeight / img.naturalHeight;
+        return Math.max(scaleX, scaleY);
+    }
+    
+    scale = fitToScreen();
+    img.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    img.style.opacity = opacity;
+    
+    document.addEventListener("wheel", function (event) {
+        event.preventDefault();
+        
+        if (event.deltaY < 0 && opacity > 0) { // Only allow zoom in if opacity is not 0
+            scale += 0.1;
+            opacity -= 0.05;
+        } else if (event.deltaY > 0) {
+            scale = Math.max(fitToScreen(), scale - 0.1); // Zoom out but not below fit-to-screen size
+            opacity += 0.05;
+        }
+        
+        opacity = Math.max(0, Math.min(1, opacity)); // Allow full fade-out (0 opacity)
+
+        if (opacity > 0) {
+            img.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        }
+        img.style.opacity = opacity;
+    });
+    
+    window.addEventListener("resize", function () {
+        scale = fitToScreen(); // Recalculate fit-to-screen size on resize
+        img.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    });
+});
+
+
+
+
+
+    //change color of page:
+    const button = document.getElementById("changeColor");
+    const body = document.body;
+
+    const themes = ["dark-mode", "gray-mode"];
+    let currentThemeIndex = 0;
+
+    button.addEventListener("click", () => {
+        // Remove the previous theme
+        body.classList.remove(themes[currentThemeIndex]);
+        // Move to the next theme
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        // Add the new theme
+        body.classList.add(themes[currentThemeIndex]);
+
+        // Force repaint
+        button.style.display = "none";
+        void button.offsetHeight;  // Trigger reflow
+        button.style.display = "block";
+    });
+</script>
+
+</html>
