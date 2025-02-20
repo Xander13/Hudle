@@ -66,8 +66,9 @@
     overflow-y: auto;
     z-index: 10;
     width: 100%;
-    background-color: black;
     z-index: 4;
+    padding-top: 100vh;
+    background-color: black;
 }
 
 .contained{
@@ -841,7 +842,7 @@ footer .flexBox {
         opacity: 1;
         pointer-events: all;
         right: 16px;
-        top: 24px;
+        top: 16px;
     }
 
     nav{
@@ -872,7 +873,7 @@ footer .flexBox {
     }
 
     .colorDot{
-        right: 32px;
+        right: 16px;
         bottom: 32px;
     }
 
