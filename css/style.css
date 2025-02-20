@@ -56,6 +56,35 @@
     z-index: 1;
 }
 
+.flip-container {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 32px;
+    line-height: 48px;
+    transition: width 0.4s ease-in-out;
+    position: relative;
+    top: 12px;
+}
+
+.heroTxt{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-wrap: balance;
+}
+
+.heroTxt h1{
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+}
+
 .casestudy {
     display: none;
     position: fixed;

@@ -86,13 +86,14 @@
         </div>
     </div>
     <div class="colorDot" id="changeColor"></div>
+    <div class="heroTxt">
+        <h1>Our <span id="word-box" class="flip-container"></span> are <br> closest when we hudle.</h1>
+    </div>
     <div class="ImgTurn">
         <img draggable="false" src="HudleIMG_Tester.png" width="100%" alt="Hudle Team Looking Down to Carmera"
             id="turnZoom">
         <div class="flexBox">
-            <div class="cols2">Our minds are closest when we hudle.</div>
-            <div class="cols2">We craft design <br> and engineering into a new paradigms</div>
-            <div class="cols2"></div>
+            <div class="cols2">We craft design and engineering into a new paradigms</div>
         </div>
     </div>
     <div class="casestudy">
@@ -237,6 +238,34 @@
     </div>
 </body>
 <script>
+    //word flipper
+    const words = ["minds", "invovations", "creativty", "intelligence", "thoughtfulness"];
+    let index = 0;
+    const wordBox = document.getElementById("word-box");
+
+    function flipWord() {
+        // Shrink the width to 0%
+        wordBox.style.width = "0%";
+
+        setTimeout(() => {
+            // Change the word
+            wordBox.textContent = words[index];
+            index = (index + 1) % words.length;
+
+            // Expand width to fit the new word
+            wordBox.style.width = wordBox.scrollWidth + "px";
+        }, 400); // Wait for shrink animation to finish
+    }
+
+    // Initialize with first word
+    wordBox.textContent = words[index];
+    wordBox.style.width = wordBox.scrollWidth + "px";
+    index++;
+
+    // Flip words every 2 seconds
+    setInterval(flipWord, 2000);
+
+    //fade case study efect
     document.addEventListener("DOMContentLoaded", function () {
         const img = document.getElementById("turnZoom");
         const caseStudy = document.querySelector(".casestudy");
