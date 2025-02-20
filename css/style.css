@@ -93,6 +93,25 @@
 
 .casestudy .cols2{
     height: auto;
+    padding-bottom: 16px;
+}
+
+.casestudy .cols2 .project-title{
+    font-size: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.casestudy .cols2 .project-subtitle{
+    font-size: 24px;
+    padding-bottom: 132px;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.casestudy .clipping{
+    position: relative;
 }
 
 .casestudy .cols2 img{
@@ -572,7 +591,6 @@ nav h1 {
 }
 
 .cols2 {
-    flex: 1;
     width: calc(100% / 2);
 }
 
