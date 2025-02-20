@@ -29,24 +29,67 @@
     /* Updated */
 }
 
-.ImgTurn {
-    max-width: 100%; /* Ensures it fits within the viewport */
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-    position: absolute; /* Allows transform centering */
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    transform: translate(-50%, -50%) scale(1);
-    transition: opacity 0.5s ease, transform 0.2s ease;
+.ImgTurn{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
-.casestudy{
+.ImgTurn .flexBox{
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    padding: 48px;
+}
+
+.ImgTurn .flexBox .cols2{
+    text-wrap: balance;
+}
+
+#turnZoom {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    user-select: none;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.casestudy {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 10;
     width: 100%;
     background-color: black;
-    padding: 48px;
-    display: none;
+    z-index: 4;
+}
+
+.contained{
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.casestudy .title{
+    font-size: 56px;
+}
+
+.casestudy img{
+    width: 100%;
+}
+
+.casestudy .flexBox{
+    display: flex;
+    gap: 16px;
+}
+
+.casestudy .big{
+    margin-bottom: 12px;
 }
 
 /* Dark Mode */
