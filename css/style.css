@@ -842,6 +842,12 @@ footer .flexBox {
 
     .fullMenuContent .flexBox{
         flex-direction: column;
+        left: 16px;
+        bottom: 16px;
+    }
+
+    .fullMenuContent{
+        padding: 0px;
     }
 
     .fullMenuContent a{
@@ -858,5 +864,36 @@ footer .flexBox {
     .colorDot{
         right: 32px;
         bottom: 32px;
+    }
+
+    .casestudy{
+        width: 100%;
+    }
+
+    .contained{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    footer{
+        width: 100%;
+        padding: 16px;
+    }
+
+    footer .flexBox{
+        flex-wrap: wrap;
+        width: 100% !important;
+    }
+
+    footer .cols2{
+        width: 100% !important;
+    }
+
+    .titleH2{
+        margin-top: 0;
+    }
+
+    .short{
+        width: 100%;
     }
 }
