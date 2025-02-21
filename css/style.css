@@ -50,19 +50,11 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(-50%, -50%);
-}
-
-.coverBio{
-    position: absolute;
-    left: 64px;
-    bottom: 64px;
-    font-size: 12px;
-    z-index: 33;
-    max-width: 290px;
-    text-wrap: balance;
+    transform: translate(-50%, -50%) scale(1);
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
 .flip-container {

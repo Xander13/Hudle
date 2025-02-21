@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <head>
-    <title>Hudle → A technology focused studio crafting new paradigms.</title>
+    <title>Hudle → A technology focused agency crafting new paradigms.</title>
     <meta name="description" content="A technology focused studio crafting new paradigms.">
     <meta name="keywords" content="Hudle, technology, design, enigneering, studio">
     <meta name="author" content="Hudle">
@@ -90,7 +90,7 @@
         <h1>Our <span id="word-box" class="flip-container"></span> is<br>best when we hudle</h1>
     </div>
     <div class="ImgTurn">
-     
+
         <!-- <img draggable="false" src="GroupPhoto.png" width="100%" alt="Hudle Team Looking Down to Carmera" > -->
         <div id="turnZoom">
             <h2 class="coverBio">A design and technology agency</h2>
@@ -289,7 +289,7 @@
 </body>
 <script>
     //word flipper
-    const words = ["design thinking",  "software development", "invovations", "creativty", "intelligence", "thoughtfulness"];
+    const words = ["design thinking", "software development", "invovations", "creativty", "intelligence", "thoughtfulness"];
     let index = 0;
     const wordBox = document.getElementById("word-box");
 
@@ -311,132 +311,150 @@
     wordBox.textContent = words[index];
     wordBox.style.width = wordBox.scrollWidth + "px";
     index++;
-
-    // Flip words every 4 seconds
     setInterval(flipWord, 4000);
 
+
+
+    //image zoom effect
     document.addEventListener("DOMContentLoaded", function () {
-    const div = document.getElementById("turnZoom");
-    const caseStudy = document.querySelector(".casestudy");
-    let scale = 1;
-    let opacity = 1;
-    let zoomEnabled = true;
+        const div = document.getElementById("turnZoom");
+        const caseStudy = document.querySelector(".casestudy");
+        let scale = 1;
+        let opacity = 1;
+        let zoomEnabled = true;
 
-    function fitToScreen() {
-        const scaleX = window.innerWidth / div.offsetWidth;
-        const scaleY = window.innerHeight / div.offsetHeight;
-        return Math.max(scaleX, scaleY); // Ensures div fully covers the viewport
-    }
-
-    function updateTransform() {
-        div.style.transform = `translate(-50%, -50%) scale(${scale})`;
-        div.style.opacity = opacity;
-    }
-
-    function handleScroll(event) {
-        if (!zoomEnabled) return;
-        event.preventDefault();
-
-        const delta = event.deltaY;
-
-        if (delta > 0 && opacity > 0) { // Scroll down fades out and zooms in
-            scale += 0.05;
-            opacity -= 0.03;
-        } else if (delta < 0) { // Scroll up fades back in and zooms out
-            scale = Math.max(fitToScreen(), scale - 0.05);
-            opacity += 0.03;
+        function fitToScreen() {
+            const scaleX = window.innerWidth / div.offsetWidth;
+            const scaleY = window.innerHeight / div.offsetHeight;
+            return Math.max(scaleX, scaleY); // Ensures div fully covers the viewport
         }
 
-        opacity = Math.max(0, Math.min(1, opacity));
-
-        updateTransform();
-
-        if (opacity === 0) {
-            div.style.display = "none";
-            caseStudy.style.display = "block";
-            zoomEnabled = false;
-        } else {
-            div.style.display = "block";
-            caseStudy.style.display = "none";
-            zoomEnabled = true;
+        function updateTransform() {
+            div.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            div.style.opacity = opacity;
         }
-    }
 
-    scale = fitToScreen() * 1;
-    updateTransform();
-    caseStudy.style.display = "none";
-    caseStudy.style.overflowY = "auto";
-    caseStudy.style.position = "fixed";
-    caseStudy.style.inset = "0";
+        function handleScroll(event) {
+            if (!zoomEnabled) return;
+            event.preventDefault();
 
-    document.addEventListener("wheel", handleScroll, { passive: false });
+            const delta = event.deltaY;
 
-    window.addEventListener("resize", function () {
-        const newScale = fitToScreen();
-        scale = Math.max(scale, newScale);
-        updateTransform();
-    });
-
-    let touchStartY = 0;
-    document.addEventListener("touchstart", function (event) {
-        if (event.touches.length === 1) {
-            touchStartY = event.touches[0].clientY;
-        }
-    });
-
-    document.addEventListener("touchmove", function (event) {
-        if (event.touches.length === 1) {
-            const touchEndY = event.touches[0].clientY;
-            handleScroll({ deltaY: touchStartY - touchEndY, preventDefault: () => { } });
-            touchStartY = touchEndY;
-        }
-    }, { passive: false });
-});
-
-
-    //full menu toggle
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuSpan = document.querySelector("#menuSpan"); // Select by ID
-        const fullMenuView = document.querySelector(".fullMenuView");
-        const fullMenuContent = document.querySelector(".fullMenuContent");
-        const body = document.body; // Select body
-
-        menuSpan.addEventListener("click", function () {
-            // Check if the menu is active
-            if (fullMenuView.classList.contains("active")) {
-                // Menu is closing, so first fade out content
-                fullMenuContent.style.opacity = '0'; // Fade out the content
-                fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-out transition
-
-                // After the fade-out completes, collapse the menu
-                setTimeout(() => {
-                    fullMenuView.style.height = '0'; // Collapse the menu to 0 height
-                    body.classList.remove("no-scroll"); // Allow scrolling again
-                }, 500); // Wait for opacity transition (500ms)
-
-                // Change menu text back to 'Menu'
-                menuSpan.innerHTML = 'Menu';
-            } else {
-                // Menu is opening, so set height to 100% first
-                fullMenuView.style.height = '100%'; // Expand the menu to full height
-                body.classList.add("no-scroll"); // Prevent scrolling
-
-                // After the height transition completes, fade in the content
-                setTimeout(() => {
-                    fullMenuContent.style.opacity = '1'; // Fade in the content
-                    fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-in transition
-                }, 500); // Wait for height transition (500ms)
-
-                // Change menu text to 'Close'
-                menuSpan.innerHTML = 'Close';
+            if (delta > 0 && opacity > 0) { // Scroll down fades out and zooms in
+                scale += 0.05;
+                opacity -= 0.03;
+            } else if (delta < 0) { // Scroll up fades back in and zooms out
+                scale = Math.max(fitToScreen(), scale - 0.05);
+                opacity += 0.03;
             }
 
-            // Toggle the active class for the menu
-            fullMenuView.classList.toggle("active");
+            opacity = Math.max(0, Math.min(1, opacity));
+
+            updateTransform();
+
+            if (opacity === 0) {
+                div.style.display = "none";
+                caseStudy.style.display = "block";
+                zoomEnabled = false;
+            } else {
+                div.style.display = "block";
+                caseStudy.style.display = "none";
+                zoomEnabled = true;
+            }
+        }
+
+        scale = fitToScreen() * 1;
+        updateTransform();
+        caseStudy.style.display = "none";
+        caseStudy.style.overflowY = "auto";
+        caseStudy.style.position = "fixed";
+        caseStudy.style.inset = "0";
+
+        document.addEventListener("wheel", handleScroll, { passive: false });
+
+        window.addEventListener("resize", function () {
+            const newScale = fitToScreen();
+            scale = Math.max(scale, newScale);
+            updateTransform();
         });
+
+        let touchStartY = 0;
+        document.addEventListener("touchstart", function (event) {
+            if (event.touches.length === 1) {
+                touchStartY = event.touches[0].clientY;
+            }
+        });
+
+        document.addEventListener("touchmove", function (event) {
+            if (event.touches.length === 1) {
+                const touchEndY = event.touches[0].clientY;
+                handleScroll({ deltaY: touchStartY - touchEndY, preventDefault: () => { } });
+                touchStartY = touchEndY;
+            }
+        }, { passive: false });
     });
 
 
+    //show and hide menu navbar
+    document.addEventListener("DOMContentLoaded", function () {
+        const topMenu = document.getElementById("topMenu");
+        const menuSpan = document.getElementById("menuSpan");
+
+        function updateMenuVisibility() {
+            if (window.innerWidth <= 601) {
+                // Reset styles for small screens
+                topMenu.style.opacity = "";
+                topMenu.style.visibility = "";
+                topMenu.style.pointerEvents = "";
+
+                menuSpan.style.opacity = "";
+                menuSpan.style.visibility = "";
+                menuSpan.style.pointerEvents = "";
+
+                window.removeEventListener("scroll", updateMenuVisibility);
+                return;
+            }
+
+            if (window.scrollY > 50) {
+                topMenu.style.opacity = "0";
+                topMenu.style.visibility = "hidden";
+                topMenu.style.pointerEvents = "none";
+
+                menuSpan.style.opacity = "1";
+                menuSpan.style.visibility = "visible";
+                menuSpan.style.pointerEvents = "auto";
+            } else {
+                topMenu.style.opacity = "1";
+                topMenu.style.visibility = "visible";
+                topMenu.style.pointerEvents = "auto";
+
+                menuSpan.style.opacity = "0";
+                menuSpan.style.visibility = "hidden";
+                menuSpan.style.pointerEvents = "none";
+            }
+        }
+
+        function checkWindowSize() {
+            if (window.innerWidth > 601) {
+                updateMenuVisibility();
+                window.addEventListener("scroll", updateMenuVisibility);
+            } else {
+                // Ensure script doesn't run on small screens
+                topMenu.style.opacity = "";
+                topMenu.style.visibility = "";
+                topMenu.style.pointerEvents = "";
+
+                menuSpan.style.opacity = "";
+                menuSpan.style.visibility = "";
+                menuSpan.style.pointerEvents = "";
+
+                window.removeEventListener("scroll", updateMenuVisibility);
+            }
+        }
+
+        checkWindowSize();
+        window.addEventListener("resize", checkWindowSize);
+    });
 
 
     //change color of page:
