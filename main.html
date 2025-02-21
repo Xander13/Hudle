@@ -87,13 +87,32 @@
     </div>
     <div class="colorDot" id="changeColor"></div>
     <div class="heroTxt">
-        <h1>Our <span id="word-box" class="flip-container"></span> are <br> closest when we hudle.</h1>
+        <h1>Our <span id="word-box" class="flip-container"></span> is<br>best when we hudle</h1>
     </div>
     <div class="ImgTurn">
-        <img draggable="false" src="GroupPhoto.png" width="100%" alt="Hudle Team Looking Down to Carmera"
-            id="turnZoom">
-        <div class="flexBox">
-            <div class="cols2">We craft design and engineering into a new paradigms</div>
+     
+        <!-- <img draggable="false" src="GroupPhoto.png" width="100%" alt="Hudle Team Looking Down to Carmera" > -->
+        <div id="turnZoom">
+            <h2 class="coverBio">A design and technology agency</h2>
+            <div class="spect1">
+                <div class="figure one">
+                    <img src="man.png" width="100%">
+                </div>
+                <div class="figure three">
+                    <img src="Man looking.png" width="100%">
+                </div>
+            </div>
+            <div class="spect2">
+                <div class="figure one">
+                    <img src="man.png" width="100%">
+                </div>
+                <div class="figure three">
+                    <img src="Man looking.png" width="100%">
+                </div>
+            </div>
+            <div class="figure four">
+                <img src="Man looking2.png" width="100%">
+            </div>
         </div>
     </div>
     <div class="casestudy">
@@ -270,7 +289,7 @@
 </body>
 <script>
     //word flipper
-    const words = ["minds", "invovations", "creativty", "intelligence", "thoughtfulness"];
+    const words = ["design thinking",  "software development", "invovations", "creativty", "intelligence", "thoughtfulness"];
     let index = 0;
     const wordBox = document.getElementById("word-box");
 
@@ -293,94 +312,89 @@
     wordBox.style.width = wordBox.scrollWidth + "px";
     index++;
 
-    // Flip words every 2 seconds
-    setInterval(flipWord, 2000);
+    // Flip words every 4 seconds
+    setInterval(flipWord, 4000);
 
-    //fade case study efect
     document.addEventListener("DOMContentLoaded", function () {
-        const img = document.getElementById("turnZoom");
-        const caseStudy = document.querySelector(".casestudy");
-        let scale = 1;
-        let opacity = 1;
-        let zoomEnabled = true;
+    const div = document.getElementById("turnZoom");
+    const caseStudy = document.querySelector(".casestudy");
+    let scale = 1;
+    let opacity = 1;
+    let zoomEnabled = true;
 
-        function fitToScreen() {
-            const scaleX = window.innerWidth / img.naturalWidth;
-            const scaleY = window.innerHeight / img.naturalHeight;
-            return Math.max(scaleX, scaleY); // Ensures image fully covers the viewport
+    function fitToScreen() {
+        const scaleX = window.innerWidth / div.offsetWidth;
+        const scaleY = window.innerHeight / div.offsetHeight;
+        return Math.max(scaleX, scaleY); // Ensures div fully covers the viewport
+    }
+
+    function updateTransform() {
+        div.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        div.style.opacity = opacity;
+    }
+
+    function handleScroll(event) {
+        if (!zoomEnabled) return;
+        event.preventDefault();
+
+        const delta = event.deltaY;
+
+        if (delta > 0 && opacity > 0) { // Scroll down fades out and zooms in
+            scale += 0.05;
+            opacity -= 0.03;
+        } else if (delta < 0) { // Scroll up fades back in and zooms out
+            scale = Math.max(fitToScreen(), scale - 0.05);
+            opacity += 0.03;
         }
 
-        function updateTransform() {
-            img.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            img.style.opacity = opacity;
-            img.style.width = "100vw";
-            img.style.height = "100vh";
-        }
+        opacity = Math.max(0, Math.min(1, opacity));
 
-        function handleScroll(event) {
-            if (!zoomEnabled) return; // Stop zooming when .casestudy is active
-            event.preventDefault();
-
-            const delta = event.deltaY; // Natural scroll direction (inverted before)
-
-            if (delta > 0 && opacity > 0) { // Scroll down fades out and zooms in
-                scale += 0.05; // Slower zoom-in speed
-                opacity -= 0.03; // Smoother fade-out
-            } else if (delta < 0) { // Scroll up fades back in and zooms out
-                scale = Math.max(fitToScreen(), scale - 0.05); // Limit to full-screen size
-                opacity += 0.03; // Smoother fade-in
-            }
-
-            opacity = Math.max(0, Math.min(1, opacity)); // Keep within range
-
-            updateTransform();
-
-            if (opacity === 0) {
-                img.style.display = "none";
-                caseStudy.style.display = "block";
-                zoomEnabled = false; // Stop scroll zoom effect
-            } else {
-                img.style.display = "block";
-                caseStudy.style.display = "none";
-                zoomEnabled = true;
-            }
-        }
-
-        scale = fitToScreen() * 1.5;
         updateTransform();
-        caseStudy.style.display = "none";
-        caseStudy.style.overflowY = "auto";
-        caseStudy.style.position = "fixed";
-        caseStudy.style.inset = "0";
 
-        document.addEventListener("wheel", handleScroll, { passive: false });
+        if (opacity === 0) {
+            div.style.display = "none";
+            caseStudy.style.display = "block";
+            zoomEnabled = false;
+        } else {
+            div.style.display = "block";
+            caseStudy.style.display = "none";
+            zoomEnabled = true;
+        }
+    }
 
-        window.addEventListener("resize", function () {
-            const newScale = fitToScreen(); // Get new base scale
-            scale = Math.max(scale, newScale); // Keep current zoom if it's larger
-            updateTransform();
-        });
+    scale = fitToScreen() * 1;
+    updateTransform();
+    caseStudy.style.display = "none";
+    caseStudy.style.overflowY = "auto";
+    caseStudy.style.position = "fixed";
+    caseStudy.style.inset = "0";
 
+    document.addEventListener("wheel", handleScroll, { passive: false });
 
-        // Touch support for mobile
-        let touchStartY = 0;
-        document.addEventListener("touchstart", function (event) {
-            if (event.touches.length === 1) {
-                touchStartY = event.touches[0].clientY;
-            }
-        });
-
-        document.addEventListener("touchmove", function (event) {
-            if (event.touches.length === 1) {
-                const touchEndY = event.touches[0].clientY;
-                handleScroll({ deltaY: touchStartY - touchEndY, preventDefault: () => { } });
-                touchStartY = touchEndY;
-            }
-        }, { passive: false });
+    window.addEventListener("resize", function () {
+        const newScale = fitToScreen();
+        scale = Math.max(scale, newScale);
+        updateTransform();
     });
 
+    let touchStartY = 0;
+    document.addEventListener("touchstart", function (event) {
+        if (event.touches.length === 1) {
+            touchStartY = event.touches[0].clientY;
+        }
+    });
+
+    document.addEventListener("touchmove", function (event) {
+        if (event.touches.length === 1) {
+            const touchEndY = event.touches[0].clientY;
+            handleScroll({ deltaY: touchStartY - touchEndY, preventDefault: () => { } });
+            touchStartY = touchEndY;
+        }
+    }, { passive: false });
+});
+
+
     //full menu toggle
-    //full menu toggle 
     document.addEventListener("DOMContentLoaded", function () {
         const menuSpan = document.querySelector("#menuSpan"); // Select by ID
         const fullMenuView = document.querySelector(".fullMenuView");
