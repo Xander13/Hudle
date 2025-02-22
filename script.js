@@ -1,18 +1,18 @@
-//show and hide menu navbar
 document.addEventListener("DOMContentLoaded", function () {
     const topMenu = document.getElementById("topMenu");
     const menuSpan = document.getElementById("menuSpan");
+    const menuCorner = document.getElementById("menuCorner"); // Fixed `this.getElementById`
 
     function updateMenuVisibility() {
         if (window.innerWidth <= 601) {
-            // Reset styles for small screens
-            topMenu.style.opacity = "";
-            topMenu.style.visibility = "";
-            topMenu.style.pointerEvents = "";
+            // Ensure menuCorner is visible on small screens
+            menuCorner.style.opacity = "1";
+            menuCorner.style.visibility = "visible";
+            menuCorner.style.pointerEvents = "auto";
 
-            menuSpan.style.opacity = "";
-            menuSpan.style.visibility = "";
-            menuSpan.style.pointerEvents = "";
+            topMenu.style.opacity = "0";
+            topMenu.style.visibility = "hidden";
+            topMenu.style.pointerEvents = "none";
 
             window.removeEventListener("scroll", updateMenuVisibility);
             return;
@@ -23,17 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
             topMenu.style.visibility = "hidden";
             topMenu.style.pointerEvents = "none";
 
-            menuSpan.style.opacity = "1";
-            menuSpan.style.visibility = "visible";
-            menuSpan.style.pointerEvents = "auto";
+            menuCorner.style.opacity = "1";
+            menuCorner.style.visibility = "visible";
+            menuCorner.style.pointerEvents = "auto";
         } else {
             topMenu.style.opacity = "1";
             topMenu.style.visibility = "visible";
             topMenu.style.pointerEvents = "auto";
 
-            menuSpan.style.opacity = "0";
-            menuSpan.style.visibility = "hidden";
-            menuSpan.style.pointerEvents = "none";
+            menuCorner.style.opacity = "0";
+            menuCorner.style.visibility = "hidden";
+            menuCorner.style.pointerEvents = "none";
         }
     }
 
@@ -42,14 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
             updateMenuVisibility();
             window.addEventListener("scroll", updateMenuVisibility);
         } else {
-            // Ensure script doesn't run on small screens
-            topMenu.style.opacity = "";
-            topMenu.style.visibility = "";
-            topMenu.style.pointerEvents = "";
+            // Hide topMenu and show menuCorner explicitly for small screens
+            topMenu.style.opacity = "0";
+            topMenu.style.visibility = "hidden";
+            topMenu.style.pointerEvents = "none";
 
-            menuSpan.style.opacity = "";
-            menuSpan.style.visibility = "";
-            menuSpan.style.pointerEvents = "";
+            menuCorner.style.opacity = "1";
+            menuCorner.style.visibility = "visible";
+            menuCorner.style.pointerEvents = "auto";
 
             window.removeEventListener("scroll", updateMenuVisibility);
         }
@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
     checkWindowSize();
     window.addEventListener("resize", checkWindowSize);
 });
-
 
 
 
@@ -232,22 +231,4 @@ backToTopButton.addEventListener('click', function () {
         top: 0,
         behavior: 'smooth'
     });
-});
-
-//change color of page:
-const button = document.getElementById("changeColor");
-const body = document.body;
-
-const themes = ["dark-mode", "gray-mode"];
-let currentThemeIndex = 0;
-
-button.addEventListener("click", () => {
-    // Remove the previous theme
-    body.classList.remove(themes[currentThemeIndex]);
-
-    // Move to the next theme
-    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-
-    // Add the new theme
-    body.classList.add(themes[currentThemeIndex]);
 });

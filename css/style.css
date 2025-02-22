@@ -223,13 +223,6 @@
     /* Updated */
 }
 
-/* Elements that should always have inverse colors */
-#menuSpan {
-    background-color: var(--inverse-bg);
-    color: var(--inverse-text);
-    transition: background-color 0.3s, color 0.3s;
-}
-
 .light-mode #changeColor {
     background-color: var(--dark);
 }
@@ -370,25 +363,27 @@ body.no-scroll {
 }
 
 #menuSpan {
-    position: fixed;
-    right: 48px;
-    top: 32px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
     z-index: 10;
     cursor: pointer;
     line-height: 18px;
     user-select: none;
-    border-radius: 100rem;
-    padding: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    width: auto;
+    text-align: center;
     height: auto;
+}
+
+#menuCorner{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    right: 32px;
+    top: 32px;
+    line-height: 18px;
+    width: fit-content;
+    text-transform: uppercase;
     font-size: 16px !important;
-    font-weight: 400 !important;
+    font-weight: 200 !important;
 }
 
 #topMenu {
@@ -491,7 +486,7 @@ body {
     max-width: 40vw;
     padding: 32px !important;
     padding-top: 264px !important;
-    padding-bottom: 132px !important;
+    padding-bottom: 48px !important;
     margin: auto;
 }
 
@@ -585,13 +580,15 @@ nav {
     justify-content: space-between;
     position: fixed;
     z-index: 22222;
-    top: 48px;
-    left: 64px;
-    right: 64px;
+    top: 32px;
+    left: 32px;
+    right: 32px;
     box-sizing: border-box;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
+    font-size: 16px;
+    text-transform: uppercase;
     /* mix-blend-mode: difference; */
 }
 
@@ -613,13 +610,6 @@ nav a {
     display: flex;
     align-items: center;
     /* Center items vertically */
-    font-size: 1.4vw;
-    font-weight: 200;
-}
-
-nav h1 {
-    color: gray;
-    font-size: 1.4vw !important;
     font-weight: 200;
 }
 
@@ -817,22 +807,19 @@ nav h1 {
 
 .t-cell .t-topics:nth-child(1),
 .t-cell .t-name:nth-child(1) {
-    width: 40%;
+    width: 90%;
     box-sizing: border-box;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 .t-cell .t-topics:nth-child(2),
 .t-cell .t-name:nth-child(2),
 .t-cell .t-topics:nth-child(3),
-.t-cell .t-name:nth-child(3),
-.t-cell .t-topics:nth-child(4),
-.t-cell .t-name:nth-child(4) {
-    width: 320px;
+.t-cell .t-name:nth-child(3)
+{
+    width: 100px;
     box-sizing: border-box;
-}
-
-.t-cell .t-topics:nth-child(3), .t-cell .t-name:nth-child(3){
-    text-align: center;
 }
 
 .t-cell .t-topics:nth-child(4), .t-cell .t-name:nth-child(4) {
@@ -848,14 +835,11 @@ nav h1 {
 
 .key {
     position: fixed;
-    left: 48px;
-    /* top: 50%; */
-    bottom: 48px;
-    /* transform: translateY(-50%); */
+    left: 32px;
+    bottom: 32px;
     width: fit-content;
     height: fit-content;
     z-index: 1000;
-    /* Optional: to ensure it stays above other content */
 }
 
 .hidden {
@@ -866,7 +850,6 @@ nav h1 {
 .key h1 {
     transition: color 0.3s, font-weight 0.3s;
     color: var(--hightlightGray);
-    /* Default color */
     line-height: 32px;
     font-size: 16px;
 }
@@ -932,24 +915,32 @@ footer .flexBox {
         display: none;
     }
 
-    #menuSpan {
+    #menuCorner {
         visibility: visible;
         opacity: 1;
         pointer-events: all;
-        right: 16px;
-        top: 16px;
+        right: 24px;
+        top: 32px;
+    }
+
+    #menuCorner .flexBox{
+        gap: 16px;
     }
 
     nav{
-        left: 16px;
-        right: 16px;
-        top: 24px;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        padding: 24px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        background-color: black;
     }
 
     .fullMenuContent .flexBox{
         flex-direction: column;
-        left: 16px;
-        bottom: 16px;
+        left: 24px;
+        bottom: 24px;
     }
 
     .fullMenuContent{
@@ -967,11 +958,6 @@ footer .flexBox {
         bottom: 16px;
     }
 
-    .colorDot{
-        right: 16px;
-        bottom: 32px;
-    }
-
     .casestudy{
         width: 100%;
     }
@@ -983,7 +969,7 @@ footer .flexBox {
 
     footer{
         width: 100%;
-        padding: 16px;
+        padding: 24px;
     }
 
     footer .flexBox{
@@ -1001,5 +987,53 @@ footer .flexBox {
 
     .short{
         width: 100%;
+    }
+
+    .key{
+        display: none;
+    }
+
+    .privacy, .siteMap{
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box !important;
+        padding: 24px !important;
+        padding-top: 250px !important;
+    }
+
+    .t-cell .t-topics:nth-child(2),
+    .t-cell .t-name:nth-child(2),
+    .t-cell .t-topics:nth-child(3),
+    .t-cell .t-name:nth-child(3) {
+        width: fit-content;
+        box-sizing: border-box;
+        font-size: 4vw;
+    }
+
+    .t-cell .t-topics:nth-child(1),
+    .t-cell .t-name:nth-child(1){
+        width: 70%;
+        text-wrap: balance;
+        font-size: 4vw;
+        line-height: 5vw;
+    }
+
+    .t-cell{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .articles{
+        max-width: 100%;
+        padding: 24px !important;
+    }
+
+    .articles .flexBox{
+        flex-wrap: wrap;
+    }
+
+    .articles .cols2, .articles .cols3{
+        width: 100%;
+        padding-bottom: 64px;
     }
 }
