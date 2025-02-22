@@ -208,6 +208,37 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        let scrollY = window.scrollY;
+        let velocity = 0;
+        let ease = 0.15; // Adjust this for smoothness
+        let friction = 0.9; // Lower = longer glide
+        let ticking = false;
+
+        function smoothScroll() {
+            const targetY = window.scrollY;
+            let diff = targetY - scrollY;
+
+            if (Math.abs(diff) < 0.5) {
+                ticking = false;
+                return; // Stop if the movement is too small
+            }
+
+            velocity += diff * ease;
+            velocity *= friction;
+            scrollY += velocity;
+
+            window.scrollTo(0, scrollY);
+            requestAnimationFrame(smoothScroll);
+        }
+
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                requestAnimationFrame(smoothScroll);
+                ticking = true;
+            }
+        });
+    </script>
 </body>
 
 </html>

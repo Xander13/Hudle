@@ -46,16 +46,23 @@
 <body>
     <nav id="slider">
         <a href="https://letshudle.com/">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none" class="navLogo">
-                <circle cx="24.0228" cy="5.0453" r="3.808" fill="currentColor"/>
-                <circle cx="24.0228" cy="43.1254" r="3.808" fill="currentColor"/>
-                <circle cx="43.0631" cy="24.0853" r="3.808" transform="rotate(90 43.0631 24.0853)" fill="currentColor"/>
-                <circle cx="4.98302" cy="24.0853" r="3.808" transform="rotate(90 4.98302 24.0853)" fill="currentColor"/>
-                <rect x="33.5039" y="5.05566" width="13.44" height="13.44" rx="5.824" transform="rotate(45 33.5039 5.05566)" fill="currentColor"/>
-                <rect x="43.0068" y="33.5664" width="13.44" height="13.44" rx="5.824" transform="rotate(135 43.0068 33.5664)" fill="currentColor"/>
-                <rect x="14.4961" y="24.0625" width="13.44" height="13.44" rx="5.824" transform="rotate(45 14.4961 24.0625)" fill="currentColor"/>
-                <rect x="24" y="14.5586" width="13.44" height="13.44" rx="5.824" transform="rotate(135 24 14.5586)" fill="currentColor"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"
+                class="navLogo">
+                <circle cx="24.0228" cy="5.0453" r="3.808" fill="currentColor" />
+                <circle cx="24.0228" cy="43.1254" r="3.808" fill="currentColor" />
+                <circle cx="43.0631" cy="24.0853" r="3.808" transform="rotate(90 43.0631 24.0853)"
+                    fill="currentColor" />
+                <circle cx="4.98302" cy="24.0853" r="3.808" transform="rotate(90 4.98302 24.0853)"
+                    fill="currentColor" />
+                <rect x="33.5039" y="5.05566" width="13.44" height="13.44" rx="5.824"
+                    transform="rotate(45 33.5039 5.05566)" fill="currentColor" />
+                <rect x="43.0068" y="33.5664" width="13.44" height="13.44" rx="5.824"
+                    transform="rotate(135 43.0068 33.5664)" fill="currentColor" />
+                <rect x="14.4961" y="24.0625" width="13.44" height="13.44" rx="5.824"
+                    transform="rotate(45 14.4961 24.0625)" fill="currentColor" />
+                <rect x="24" y="14.5586" width="13.44" height="13.44" rx="5.824" transform="rotate(135 24 14.5586)"
+                    fill="currentColor" />
+            </svg>
         </a>
         <div class="flexBox" id="topMenu">
             <a href="https://letshudle.com" class="link">Work</a>
@@ -354,6 +361,37 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        let scrollY = window.scrollY;
+        let velocity = 0;
+        let ease = 0.15; // Adjust this for smoothness
+        let friction = 0.9; // Lower = longer glide
+        let ticking = false;
+
+        function smoothScroll() {
+            const targetY = window.scrollY;
+            let diff = targetY - scrollY;
+
+            if (Math.abs(diff) < 0.5) {
+                ticking = false;
+                return; // Stop if the movement is too small
+            }
+
+            velocity += diff * ease;
+            velocity *= friction;
+            scrollY += velocity;
+
+            window.scrollTo(0, scrollY);
+            requestAnimationFrame(smoothScroll);
+        }
+
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                requestAnimationFrame(smoothScroll);
+                ticking = true;
+            }
+        });
+    </script>
 </body>
 
 </html>
