@@ -388,6 +388,10 @@ body.no-scroll {
     font-weight: 200 !important;
 }
 
+#menuCorner .flexBox{
+    gap: 12px;
+}
+
 #topMenu {
     transition: opacity 0.3s ease-in-out, visibility 0.3s;
     opacity: 1;
