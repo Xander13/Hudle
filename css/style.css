@@ -481,7 +481,9 @@ body {
 }
 
 .bold {
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 32px;
 }
 
 .short {
@@ -677,6 +679,7 @@ nav a {
     width: 100%;
     margin: 0;
     padding: 0;
+    border-radius: 12px;
 }
 
 .clipping img {
@@ -828,8 +831,15 @@ nav a {
 .t-cell .t-topics:nth-child(3),
 .t-cell .t-name:nth-child(3)
 {
-    width: 100px;
+    width: 300px;
     box-sizing: border-box;
+}
+
+.articles .t-cell .t-topics:nth-child(2),
+.articles .t-cell .t-name:nth-child(2),
+.articles .t-cell .t-topics:nth-child(3),
+.articles .t-cell .t-name:nth-child(3){
+    width: 800px
 }
 
 .t-cell .t-topics:nth-child(4), .t-cell .t-name:nth-child(4) {
@@ -925,14 +935,18 @@ footer .flexBox {
         display: none;
     }
 
+    .hide-nav {
+        top: -100px;
+      }
+
     #menuCorner {
         visibility: visible;
         opacity: 1;
         pointer-events: all;
-        right: 24px;
-        top: 0px;
-        padding-top: 28px;
-        padding-bottom: 28px;
+        position: relative;
+        right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     #menuCorner .flexBox{
@@ -947,6 +961,7 @@ footer .flexBox {
         padding-bottom: 20px;
         padding-top: 20px;
         background-color: black;
+        transition: top 0.3s ease;
     }
 
     .fullMenuContent .flexBox{
@@ -1013,6 +1028,16 @@ footer .flexBox {
         padding-top: 250px !important;
     }
 
+    .privacy .bodyH1{
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+    .privacy .bold{
+        font-size: 28px;
+        line-height: 38px;
+    }
+
     .t-cell .t-topics:nth-child(2),
     .t-cell .t-name:nth-child(2),
     .t-cell .t-topics:nth-child(3),
@@ -1020,11 +1045,12 @@ footer .flexBox {
         width: fit-content;
         box-sizing: border-box;
         font-size: 4vw;
+        line-height: 5vw;
     }
 
     .t-cell .t-topics:nth-child(1),
     .t-cell .t-name:nth-child(1){
-        width: 70%;
+        width: 60%;
         text-wrap: balance;
         font-size: 4vw;
         line-height: 5vw;
@@ -1047,5 +1073,9 @@ footer .flexBox {
     .articles .cols2, .articles .cols3{
         width: 100%;
         padding-bottom: 64px;
+    }
+
+    .articles .cols2:last-child{
+        padding-bottom: 0;
     }
 }

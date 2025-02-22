@@ -223,12 +223,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //Scroll back to top of site
-const backToTopButton = document.getElementById('backtotop');
+// const backToTopButton = document.getElementById('backtotop');
 
-// When the user clicks on the button, scroll to the top of the document
-backToTopButton.addEventListener('click', function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+// // When the user clicks on the button, scroll to the top of the document
+// backToTopButton.addEventListener('click', function () {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+// });
+
+
+//nav slides down on mobile settings
+document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollTop = 0;
+    const slider = document.getElementById("slider");
+    let timeout; // Store timeout for resetting
+
+    window.addEventListener("scroll", function () {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down, hide the nav
+            slider.classList.add("hide-nav");
+        } else {
+            // Scrolling up, show the nav
+            slider.classList.remove("hide-nav");
+        }
+
+        lastScrollTop = scrollTop;
+
+        // Clear previous timeout and set new one
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            slider.classList.remove("hide-nav"); // Show menu after inactivity
+        }, 3000); // 3 seconds delay
     });
 });
+
