@@ -378,7 +378,9 @@ body.no-scroll {
     pointer-events: none;
     position: fixed;
     right: 32px;
-    top: 32px;
+    top: 0px;
+    padding-top: 28px;
+    padding-bottom: 28px;
     line-height: 18px;
     width: fit-content;
     text-transform: uppercase;
@@ -567,7 +569,7 @@ button:focus {
     height: 100%;
     width: 100%;
     padding-left: 16%;
-    padding-right: 48px;
+    padding-right: 32px;
 }
 
 .articles .flexBox {
@@ -580,9 +582,13 @@ nav {
     justify-content: space-between;
     position: fixed;
     z-index: 22222;
-    top: 32px;
-    left: 32px;
-    right: 32px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: black;
     box-sizing: border-box;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
@@ -920,7 +926,9 @@ footer .flexBox {
         opacity: 1;
         pointer-events: all;
         right: 24px;
-        top: 32px;
+        top: 0px;
+        padding-top: 28px;
+        padding-bottom: 28px;
     }
 
     #menuCorner .flexBox{
