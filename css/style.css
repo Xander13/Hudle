@@ -10,7 +10,7 @@
     --xsm-margin: 24px;
     --titleH1: 56px;
     --titleH2: 32px;
-    --titleH3: 14px;
+    --titleH3: 24px;
     --bodyH1: 18px;
     --svg-color: var(--dark);
     --inverse-bg: var(--light);
@@ -101,9 +101,9 @@
 }
 
 .contained{
-    padding-left: 64px;
-    padding-right: 64px;
-    background-color: #f3f3f3;
+    padding-left: 32px;
+    padding-right: 32px;
+    background-color: black;
 }
 
 .casestudy .title{
@@ -277,32 +277,39 @@ body.no-scroll {
     overflow: hidden;
 }
 
-.colorDot {
-    width: 18px;
-    height: 18px;
-    border-radius: 100rem;
-    position: fixed;
-    right: 32px;
-    bottom: 32px;
-    cursor: pointer;
-    transition: scale 0.3s ease;
-    scale: 1;
-    z-index: 222;
-    background-color: var(--light);
-    mix-blend-mode: difference;
-}
-
 .projects{
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 .projects .flexBox{
-    gap: 8px;
+    gap: 16px;
 }
 
 .projects img{
-    padding-bottom: 6px;
+    padding-bottom: 16px;
+}
+
+.projectHero h1{
+    padding-left: 32px;
+    font-size: 4vw;
+    margin-top: 224px;
+    padding-bottom: 32px;
+}
+
+.projectHero{
+    margin-bottom: 16px;
+}
+
+.projectHero video{
+    width: 100%;
+}
+
+#dynamicWidth{
+    height: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    transition: padding-left 0.3s ease, padding-right 0.3s ease;
 }
 
 .colorDot:hover {
@@ -327,6 +334,14 @@ body.no-scroll {
     z-index: 2222;
 }
 
+.fullMenuView .fixed{
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    right: 32px;
+    justify-content: space-between;
+}
+
 .fullMenuView.active {
     height: 100%;
     /* Expand when active */
@@ -338,28 +353,33 @@ body.no-scroll {
     z-index: 2222;
 }
 
-.fullMenuContent {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 32px;
-    overflow: hidden;
-    opacity: 0;
+.menuList{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    font-size: 12vw;
+    text-align: center;
+    line-height: 12vw;
+    width: fit-content;
+    margin: auto;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-.fullMenuContent a {
-    font-size: 4vw;
-    font-weight: 100;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-.fullMenuContent .flexBox {
-    justify-content: space-between;
+.readBar{
     position: absolute;
-    bottom: 32px;
     left: 32px;
     right: 32px;
+    height: auto;
+    border-bottom: 4px solid #6D47EB;
+    pointer-events: none;
+    box-sizing: border-box;
+    top: 50%;
+    z-index: 4;
+}
+
+.readBar h1{
+    padding-bottom: 6px;
 }
 
 #menuSpan {
@@ -699,7 +719,6 @@ nav a {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-radius: 12px;
 }
 
 .clipping img {
@@ -757,6 +776,10 @@ nav a {
     margin-bottom: 32px;
     margin-top: 64px;
     font-weight: 200;
+}
+
+.titleH3{
+    font-size: var(--titleH3);
 }
 
 .bodyH1 {
@@ -1015,12 +1038,6 @@ footer .titleH2{
         transition: top 0.3s ease;
     }
 
-    .fullMenuContent .flexBox{
-        flex-direction: column;
-        left: 24px;
-        bottom: 24px;
-    }
-
     .fullMenuContent{
         padding: 0px;
     }
@@ -1041,8 +1058,8 @@ footer .titleH2{
     }
 
     .contained{
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
     footer{
@@ -1124,5 +1141,63 @@ footer .titleH2{
 
     .articles .cols2:last-child{
         padding-bottom: 0;
+    }
+
+    .projects, .projectHero{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .projects .flexBox, .contained .flexBox{
+        width: 100;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .projects .cols2, .contained .cols2{
+        width: 100%;
+    }
+
+    .projectHero h1{
+        font-size: 56px;
+        line-height: 64px;
+        padding-left: 0px;
+    }
+
+    .contained img{
+        margin-bottom: 0;
+    }
+
+    .menuList{
+        margin-right: 24px;
+        height: 90vh;
+    }
+
+    .menuList a{
+        font-size: 72px;
+        line-height: 86px;
+        text-align: right;
+    }
+
+
+
+    .moible{
+        align-items: center !important;
+    }
+
+    .mobile a{
+        line-height: 15px;
+        color: gray;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        font-size: 15px;
+    }
+
+    .fullMenuView .fixed{
+        position: absolute;
+        bottom: 24px;
+        left: 32px;
+        right: 32px;
+        justify-content: space-between;
     }
 }

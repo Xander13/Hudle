@@ -1,9 +1,10 @@
+<!--Hi, nice meeting you. Stay tune for more!-->
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
 
 <head>
-    <title>Hudle → 404 Error</title>
+    <title>Hudle → Works</title>
     <meta name="description" content="A technology focused studio crafting new paradigms.">
     <meta name="keywords" content="Hudle, technology, design, enigneering, studio">
     <meta name="author" content="Hudle">
@@ -126,63 +127,122 @@
             </div>
         </div>
     </div>
-    <div class="fullMenuView">
-        <div class="fullMenuContent">
-            <div class="flexBox">
-                <a href="https://letshudle.com" class="link">Work</a>
-                <a href="#" class="link">About</a>
-                <a href="ideas.html" class="link">Ideas</a>
-                <a href="#" class="link">Service</a>
-                <a href="contact.html">Contact</a>
+    <div class="contained">
+        <div class="lg-margin"></div>
+        <h1 class="title">Select Works</h1>
+        <div class="sm-margin"></div>
+        <div class="flexBox">
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                        <!-- <video src="#" width="100%" nocontrols muted autoplay playinline loop></video> -->
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
+            </div>
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                        <!-- <video src="#" width="100%" nocontrols muted autoplay playinline loop></video> -->
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
             </div>
         </div>
+        <div class="flexBox">
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
+            </div>
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
+            </div>
+        </div>
+        <div class="flexBox">
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
+            </div>
+            <div class="cols2">
+                <a href="casestudy.html">
+                    <div class="clipping">
+                        <img src="sampleCube.png" alt="sample cube">
+                    </div>
+                </a>
+                <h1 class="project-title">A very awesome project title goes here.</h1>
+                <h2 class="project-subtitle">UX/UI Design, Client</h2>
+            </div>
+        </div>
+        <div class="sm-margin"></div>
+        <div class="seeMore">+</div>
+        <div class="lg-margin"></div>
+        <h1 class="title">We speicalize in shaping companies and brands into new paradigms.</h1>
+        <p>We service an array of actions to succed your next chpaters.</p>
+        <div class="sm-margin"></div>
+        <hr>
+        <div class="flexBox">
+            <div class="cols2"></div>
+        </div>
+        <div class="sm-margin"></div>
+        <hr>
+        <div class="flexBox">
+            <div class="cols2"></div>
+        </div>
+        <div class="sm-margin"></div>
+        <hr>
+        <div class="flexBox">
+            <div class="cols2"></div>
+        </div>
+        <div class="sm-margin"></div>
+        <hr>
+        <div class="flexBox">
+            <div class="cols2"></div>
+        </div>
+        <div class="sm-margin"></div>
+        <hr>
+        <div class="flexBox">
+            <div class="cols2"></div>
+        </div>
+        <div class="lg-margin"></div>
     </div>
-    <section class="errorBody">
-        <h1><span class="light">404</span><br>page not found</h1>
-    </section>
+    <footer>
+        <div class="hr"></div>
+        <div class="md-margin"></div>
+        <h1>It's <span id="detroitTime">00:00</span> in Detroit</h1>
+        <div class="sm-margin"></div>
+        <h1 class="titleH2">Hudle is a technology infused agency crafting products into a new
+            paradigms. We’re always open for a chat, so get in touch to find
+            out how we can help. <br> <br> <a href="mailto:hello@letshudle.com">hello@letshudle.com</a></h1>
+        <div class="md-margin"></div>
+        <div class="flexBox">
+            <h1>©2025 Hudle</h1>
+            <div class="flexBox" style="justify-content: start; gap: 12px; flex-wrap: nowrap; flex-direction: row;">
+                <a href="sitemap.html" class="link">Sitemap</a>
+                <a href="privacy-policy.html" class="link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
 </body>
-<script>
-//full menu toggle 
-document.addEventListener("DOMContentLoaded", function () {
-    const menuSpan = document.querySelector("#menuSpan"); // Select by ID
-    const fullMenuView = document.querySelector(".fullMenuView");
-    const fullMenuContent = document.querySelector(".fullMenuContent");
-    const body = document.body; // Select body
-
-    menuSpan.addEventListener("click", function () {
-        // Check if the menu is active
-        if (fullMenuView.classList.contains("active")) {
-            // Menu is closing, so first fade out content
-            fullMenuContent.style.opacity = '0'; // Fade out the content
-            fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-out transition
-
-            // After the fade-out completes, collapse the menu
-            setTimeout(() => {
-                fullMenuView.style.height = '0'; // Collapse the menu to 0 height
-                body.classList.remove("no-scroll"); // Allow scrolling again
-            }, 500); // Wait for opacity transition (500ms)
-
-            // Change menu text back to 'Menu'
-            menuSpan.innerHTML = 'Menu';
-        } else {
-            // Menu is opening, so set height to 100% first
-            fullMenuView.style.height = '100%'; // Expand the menu to full height
-            body.classList.add("no-scroll"); // Prevent scrolling
-
-            // After the height transition completes, fade in the content
-            setTimeout(() => {
-                fullMenuContent.style.opacity = '1'; // Fade in the content
-                fullMenuContent.style.transition = 'opacity 0.5s ease'; // Smooth fade-in transition
-            }, 500); // Wait for height transition (500ms)
-
-            // Change menu text to 'Close'
-            menuSpan.innerHTML = 'Close';
-        }
-
-        // Toggle the active class for the menu
-        fullMenuView.classList.toggle("active");
-    });
-});
-</script>
+<script src="script.js"></script>
 
 </html>
