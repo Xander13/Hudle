@@ -582,6 +582,29 @@ button:focus {
     gap: 12px;
 }
 
+.hr{
+    width: calc(100% - 64px);
+    height: 1px;
+    background-color: #444444;
+    margin-left: 32px;
+    margin-right: 32px;
+    box-sizing: border-box;
+}
+
+#backtotop{
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background-color: white;
+    color: black;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100rem;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -594,7 +617,6 @@ nav {
     padding: 32px;
     padding-bottom: 20px;
     padding-top: 20px;
-    background-color: black;
     box-sizing: border-box;
     pointer-events: none;
     transition: opacity 0.3s ease-in-out;
@@ -891,13 +913,21 @@ nav a {
 }
 
 footer {
-    padding: 48px;
-    padding-bottom: 32px;
     width: 100%;
-    font-size: 14px;
+    height: 100vh;
+    font-size: 15px;
     pointer-events: none;
-    background-color: black;
+    background-color: rgb(18, 18, 18);
     color: white;
+    position: relative;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-direction: column;
 }
 
 footer .flexBox .stack {
@@ -911,12 +941,26 @@ footer .flexBox .stack {
     flex-direction: column;
 }
 
+.bottomFixed{
+    position: absolute;
+    bottom: 16px;
+    left: 32px;
+    right: 32px;
+    z-index: 2;
+}
+
 footer a {
     pointer-events: all;
 }
 
 footer .flexBox {
     justify-content: space-between;
+}
+
+
+footer .titleH2{
+    margin-top: 0;
+    margin-bottom: 0  !important;
 }
 
 .fixed {
@@ -1001,7 +1045,8 @@ footer .flexBox {
 
     footer .flexBox{
         flex-wrap: wrap;
-        width: 100% !important;
+        flex-direction: row;
+        flex-grow: 12px;
     }
 
     footer .cols2{
