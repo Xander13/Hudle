@@ -261,3 +261,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//nice menu scroll
+const menuList = document.querySelector(".menuList");
+
+// Function to duplicate the items in the menu
+function duplicateItems() {
+    const items = [...menuList.children]; // Get all children in the menuList
+    items.forEach(item => {
+        const clone = item.cloneNode(true); // Clone each item
+        menuList.appendChild(clone); // Append the cloned items
+    });
+}
+
+// Duplicate the items initially
+duplicateItems();
+
+// Function to handle smooth infinite scroll
+menuList.addEventListener("scroll", () => {
+    if (menuList.scrollTop + menuList.clientHeight >= menuList.scrollHeight) {
+        // If we reached the bottom, scroll to the top
+        menuList.scrollTop = 0;
+    } else if (menuList.scrollTop <= 0) {
+        // If we reached the top, scroll to the bottom
+        menuList.scrollTop = menuList.scrollHeight / 2;
+    }
+});
+
