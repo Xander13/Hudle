@@ -358,14 +358,24 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    font-size: 12vw;
-    text-align: center;
-    line-height: 15vw;
+    font-size: 7vw;
+    text-align: left;
+    line-height: 8vw;
     text-transform: uppercase;
-    width: fit-content;
-    margin: auto;
-    height: 100vh;
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%); 
+    height: fit-content; 
     overflow-y: auto;
+}
+
+.mobile a {
+    line-height: 15px;
+    color: gray;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-size: 15px;
 }
 
 .readBar {
@@ -1177,16 +1187,16 @@ footer .titleH2 {
 
     .menuList {
         position: absolute;
-        right: 24px; /* Keep the right margin as it was */
-        top: 50%; /* Vertically center the menu */
-        transform: translateY(-50%); /* Adjust to truly center vertically */
-        height: 60vh; /* Set height to 60% of viewport */
+        left: 24px;
+        top: 50%;
+        transform: translateY(-50%); 
+        height: fit-content; 
     }
 
     .menuList a {
         font-size: 12vw;
         line-height: 20vw;
-        text-align: right;
+        text-align: left;
     }
 
     .moible {
