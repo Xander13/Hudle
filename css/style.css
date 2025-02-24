@@ -1177,13 +1177,14 @@ footer .titleH2 {
 
     .menuList {
         position: absolute;
-        right: 24px;
-        height: 50vh;
-        top: 25vh;
+        right: 24px; /* Keep the right margin as it was */
+        top: 50%; /* Vertically center the menu */
+        transform: translateY(-50%); /* Adjust to truly center vertically */
+        height: 60vh; /* Set height to 60% of viewport */
     }
 
     .menuList a {
-        font-size: 15vw;
+        font-size: 12vw;
         line-height: 20vw;
         text-align: right;
     }
