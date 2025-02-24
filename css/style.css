@@ -368,21 +368,6 @@ body.no-scroll {
     overflow-y: auto;
 }
 
-.gradientOverlay {
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    background: linear-gradient(to bottom, 
-    black 0%, 
-    rgba(0, 0, 0, 0) 40%, 
-    rgba(0, 0, 0, 0) 50%, 
-    rgba(0, 0, 0, 0) 60%, 
-    black 100%);
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-
 .readBar {
     position: absolute;
     left: 32px;
@@ -1193,12 +1178,6 @@ footer .titleH2 {
     .menuList {
         position: absolute;
         right: 24px;
-        height: 50vh;
-        top: 25vh;
-    }
-
-    .gradientOverlay{
-        position: fixed;
         height: 50vh;
         top: 25vh;
     }
